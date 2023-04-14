@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: volt-ic-config
+  namespace: {{ .Values.namespace }}
+data:
+  config.yml: |
+    Url: {{ .Values.config.url }}
+    SiteName: {{ .Values.config.siteName }}
+    Tenant: {{ .Values.config.tenant }}

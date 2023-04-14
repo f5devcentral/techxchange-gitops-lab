@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: brewz-xc-ingress
+  annotations:
+    # Load Balancer annotations
+    ingress.cloud.f5.com/max-request-header-size: "90"
+    ingress.cloud.f5.com/lb-method: random
+    ingress.cloud.f5.com/max-fails: "5"
+    ingress.cloud.f5.com/connection-timeout: "4000"
+    ingress.cloud.f5.com/advertise-policy-type: "internet"
+    ingress.cloud.f5.com/advertise-policy-site: "outside system/{{ (datasource "local").APPSTACK_SITE }}"
+    ingress.cloud.f5.com/https-auto-cert: "true" #TLS termination with auto cert
+    ingress.cloud.f5.com/http-redirect: "true" #Enable HTTP to HTTPs redirect
+
+    # Load Balancer Route annotations
+    ingress.cloud.f5.com/disable-host-rewrite: "nic-nginx-ingress-controller"
+
+    # Origin Pool annotations
+    ingress.cloud.f5.com/ssl-services: "nic-nginx-ingress-controller"
+
+spec:
+  rules:
+    - host: {{ (datasource "local").BREWZ_HOST }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nic-nginx-ingress-controller
+                port:
+                  number: 443

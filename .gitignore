@@ -1,0 +1,6 @@
+setup/**
+.key
+.cert
+.p12
+tmp/**
+vars.yaml

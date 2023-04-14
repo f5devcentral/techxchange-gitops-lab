@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: volt-ic
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: volt-ic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: volt-ic
+  template:
+    metadata:
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
+      labels:
+        app: volt-ic
+    spec:
+      containers:
+      - name: volt-ic
+        {{- if .Values.deployment.digest }}
+        image: {{ .Values.deployment.image }}@{{ .Values.deployment.digest }}
+        {{- else }}
+        image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
+        {{- end }}
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "256Mi"
+          limits:
+            memory: "512Mi"
+        securityContext:
+          runAsUser: 20000
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - NET_RAW
+              - ALL
+        env:
+        - name: ApiCert
+          valueFrom:
+            secretKeyRef:
+              name: {{ if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}volt-ic-secret{{ end }}
+              key: ApiCert
+              optional: false
+        - name: ApiKey
+          valueFrom:
+            secretKeyRef:
+              name: {{ if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}volt-ic-secret{{ end }}
+              key: ApiKey
+              optional: false
+        volumeMounts:
+        - mountPath: /config
+          name: config
+      volumes:
+      - configMap:
+          name: volt-ic-config
+        name: config

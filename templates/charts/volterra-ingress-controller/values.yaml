@@ -1,0 +1,53 @@
+---
+# Config Fields for volterra-ingress-controller.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+namespace: volt-ic
+
+# The deployment image of the Volterra ingress controller
+# NOTE: immutable tags are recommended
+# NOTE: image digest in the way sha256:aa....
+# NOTE: if image digest is set, will override the tag
+deployment:
+  image: gcr.io/volterraio/ves-lb
+  tag: "v1.0"
+
+# To get site sitename / tenant / url:
+#   1. Go to https://[tenant].console.ves.volterra.io/web/workspaces/cloud-and-edge-sites/sites/site_list
+#   2. Choose the desired site and click the dropdown, copy the "tenant" and "name" for the tenant and siteName fields
+#      Note the tenant field requires the full path (different from other places that need tenant), which has the suffix-id
+#   3. The url would be https://[tenant].console.ves.volterra.io/api
+#
+# To get apiCert and apiKey:
+#   1. Go to https://[tenant].console.ves.volterra.io/web/workspaces/administration/iam/service_credentials 
+#      to create API Certificate, download and save it to local.
+#     a. Permissions needed
+#        namespace          | role
+#        -------------------|--------------------
+#        default            | ves-io-default-role
+#        all app namespaces | ves-io-admin-role
+#        shared             | ves-io-admin-role
+#   2. Extract the certificate and private key out of the P12 file:
+#      $ openssl pkcs12 -in ~/[tenant].console.ves.volterra.io.api-creds.p12 -nodes -nokeys -out $HOME/vescred.cert
+#      Enter Import Password:
+#      MAC verified OK
+#      $ openssl pkcs12 -in ~/[tenant].console.ves.volterra.io.api-creds.p12 -nodes -nocerts -out $HOME/vesprivate.key
+#      Enter Import Password:
+#      MAC verified OK
+#   3. Then encode it and store it as <BASE64_Value>
+#      cat $HOME/vescred.cert | base64     --> api_cert
+#      cat $HOME/vesprivate.key | base64   --> api_key
+#      The api_key and api_cert should be stored in secret.yaml, but you can also use vault to store them
+
+config:
+  url: "https://{{ (datasource "local").XC_TENANT }}.console.ves.volterra.io/api"
+  siteName: "{{ (datasource "local").APPSTACK_SITE }}"
+  tenant: "{{ (datasource "local").XC_TENANT }}-{{ (datasource "local").XC_TENANT_SUFFIX }}"
+  apiCert: ""
+  apiKey: ""
+
+# @param existingSecret Existing secret name with volt-ic-secret credentials (keys: `ApiCert`, `ApiKey`)
+# NOTE: When it's set the previous apiCert and apiKey are ignored.
+# NOTE: existingSecret needs to be in the same namespace as deployment
+existingSecret: "f5xc-api-secret"
+

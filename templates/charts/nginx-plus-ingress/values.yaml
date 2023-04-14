@@ -1,0 +1,40 @@
+---
+nginx-ingress:
+  controller:
+    config:
+      entries:
+        log-format: '$remote_addr - $remote_user [$time_local] "$request" $status $grpc_status $body_bytes_sent "$http_referer"  "$http_user_agent" "$http_x_forwarded_for" "$resource_name" "$resource_type" "$resource_namespace" "$service" "$host"'
+    appprotect:
+      enable: true
+    appprotectdos:
+      enable: true
+    enableSnippets: true
+    image:
+      repository: private-registry.nginx.com/nginx-ic-nap-dos/nginx-plus-ingress
+      tag: 3.1.0
+    defaultTLS:
+      secret: {{ (datasource "local").XC_NAMESPACE }}/default-server-secret
+    nginxplus: true
+    nginxStatus:
+      allowCidrs: 0.0.0.0/0
+      port: 9000
+    readyStatus:
+      initialDelaySeconds: 30
+    serviceAccount:
+      imagePullSecretName: regcred
+    service:
+      customPorts:
+        - port: 9114
+          targetPort: service-insight
+          nodePort: 31000
+          protocol: TCP
+          name: service-insight
+        - port: 9000
+          targetPort: 9000
+          nodePort: 32000
+          protocol: TCP
+          name: nginx-status
+  prometheus:
+    create: true
+  serviceInsight:
+    create: true
