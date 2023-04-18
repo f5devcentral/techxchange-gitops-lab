@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     path: charts/grafana
-    repoURL: https://github.com/{{ (datasource "local").REPO_OWNER }}/edgar-appstack-ce-infra.git
+    repoURL: https://github.com/{{ (datasource "local").REPO_OWNER }}/{{ (datasource "local").REPO }}.git
     targetRevision: HEAD
   destination:
     namespace: {{ (datasource "local").XC_NAMESPACE }}
