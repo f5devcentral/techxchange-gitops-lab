@@ -2,7 +2,7 @@
 
 When a cluster is provisioned, there is usually a desire to install services that can be used cluster-wide by one or more user applications. These "infrastructure apps" can vary from security services, traffic shapers/routers, deployment operators, security vaults, dashboards, telemetry providers, etc.
 
-Typically a platform operations engineer will ensure these services are available in a cluster based on the needs of *their* customers, the application owners, or developers. With the power of XC's Managed Kubernetes offering, platform engineers can automate the deployment of a fleet of clusters worldwide, all interconnected with our best-in-class network.
+Typically a platform operations engineer will ensure these services are available in a cluster based on the needs of *their* customers, the application owners, or developers. With the power of F5 Distributed Cloud's Managed Kubernetes offering, platform engineers can automate the deployment of a fleet of clusters worldwide, all interconnected with our best-in-class network.
 
 We will introduce and deploy a few of these "infrastructure apps".
 
@@ -22,7 +22,15 @@ We will leverage Argo CD to install NGINX Ingress Controller for us, leveraging 
 
 [Helm](https://helm.sh/) helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application with minimal, declarative configuration.
 
-TODO: add grafana installation steps
+Use `kubectl` to create an ArgoCD Application resource. ArgoCD uses Application resources to deploy applications whose configuration is present in a git repository.
+
+1. Examine the contents of the ArgoCD Application resource by opening the `manifests/grafana-subchart.yaml` file in Visual Studio Code. Note the `spec.source.repoUrl` is already set to your repository's helm chart folder for Grafana. This is where ArgoCD will fetch the resources for the initial deployment, as well as monitor for changes.
+
+1. Run the following command in the VS Code terminal:
+
+    ```shell
+    kubectl apply -f manifests/grafana-subchart.yaml
+    ```
 
 1. Verify the installation was successful by logging into Argo CD. Ensure that an application called `grafana` has been installed, and is in sync and healthy.
 
@@ -30,10 +38,11 @@ TODO: add grafana installation steps
 
 1. In your browser, open a new tab and log into Grafana by navigating to <TODO: what is this url>
 
-1. When presented for login credentials, enter `admin` as the username. To acquire the password, you must interrogate k8s for the secret containing the password from a terminal in the Ubuntu desktop:
+1. When presented for login credentials, enter `admin` as the username. To acquire the password, you must interrogate k8s for the secret containing the password from a terminal in the **appdev** vm:
 
     ```bash
-    kubectl get secret --namespace <TODO: your namespace> grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+    XC_NAMESPACE=<your student namespace>
+    kubectl get secret --namespace $XC_NAMESPACE grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
     ```
 
 1. For now, you are just confirming that you can log in to Grafana; we will use it later in this lab so keep this tab open.

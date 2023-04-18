@@ -21,7 +21,7 @@ metadata:
 
 spec:
   rules:
-    - host: {{ (datasource "local").BREWZ_HOST }}
+    - host: {{ template "BREWZ_HOST" }}
       http:
         paths:
           - path: /

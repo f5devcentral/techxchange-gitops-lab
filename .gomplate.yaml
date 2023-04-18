@@ -1,8 +1,7 @@
-inputDir: templates/
-outputDir: tmp/
+inputDir: .templates/
+outputDir: .
 excludes:
   - 'charts/volterra-ingress-controller/templates/*'
-
 datasources:
   local:
     url: vars.yaml

@@ -126,7 +126,7 @@ One of the advantages the NGINX Plus Ingress Controller provides is the ability 
 
 The Brewz developers have an issue where their APIs are not always returning a JSON response. A good example is when you lookup a product that does not exist. The API returns a 400 HTTP response code but the body payload is *"Could not find the product!"*.
 
-1. Run the following command from a terminal in the Ubuntu desktop to test this output:
+1. Run the following command from a terminal in the **appdev** vm to test this output:
 
     ```bash
     BREWZ_URL=<your brewz application hostname>
@@ -161,7 +161,7 @@ The Brewz developers have an issue where their APIs are not always returning a J
 
     > **Note:** In the lab environment, at times Argo CD may not immediately detect and deploy the changes. If this is the case, click the **Refresh** button on the **brewz** application in Argo CD.
 
-1. Now, check that an unknown product returns a JSON object by running the following command in the terminal of the Ubuntu desktop:
+1. Now, check that an unknown product returns a JSON object by running the following command in the terminal of the **appdev** vm:
 
     ```bash
     curl -k https://$BREWZ_URL/api/products/1234
