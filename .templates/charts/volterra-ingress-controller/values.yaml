@@ -40,9 +40,9 @@ deployment:
 #      The api_key and api_cert should be stored in secret.yaml, but you can also use vault to store them
 
 config:
-  url: "https://{{ (datasource "local").XC_TENANT }}.console.ves.volterra.io/api"
-  siteName: "{{ (datasource "local").APPSTACK_SITE }}"
-  tenant: "{{ (datasource "local").XC_TENANT }}-{{ (datasource "local").XC_TENANT_SUFFIX }}"
+  url: "https://~{ (datasource "local").XC_TENANT }~.console.ves.volterra.io/api"
+  siteName: "~{ (datasource "local").APPSTACK_SITE }~"
+  tenant: "~{ (datasource "local").XC_TENANT }~-~{ (datasource "local").XC_TENANT_SUFFIX }~"
   apiCert: ""
   apiKey: ""
 

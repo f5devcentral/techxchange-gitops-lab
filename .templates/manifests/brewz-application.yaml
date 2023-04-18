@@ -2,17 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: brewz
-  namespace: {{ (datasource "local").XC_NAMESPACE }}
+  namespace: ~{ (datasource "local").XC_NAMESPACE }~
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     path: manifests/brewz
-    repoURL: https://github.com/{{ (datasource "local").REPO_OWNER }}/{{ (datasource "local").REPO }}.git
+    repoURL: https://github.com/~{ (datasource "local").REPO_OWNER }~/~{ (datasource "local").REPO }~.git
     targetRevision: HEAD
   destination:
-    namespace: {{ (datasource "local").XC_NAMESPACE }}
+    namespace: ~{ (datasource "local").XC_NAMESPACE }~
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:

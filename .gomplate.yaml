@@ -1,7 +1,8 @@
+
+leftDelim: '~{'
+rightDelim: '}~'
 inputDir: .templates/
 outputDir: .
-excludes:
-  - 'charts/volterra-ingress-controller/templates/*'
 datasources:
   local:
     url: vars.yaml

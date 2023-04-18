@@ -1,7 +1,7 @@
-{{ define "GRAFANA_HOST" -}}
-{{ (datasource "local").GRAFANA_HOST_PREFIX }}-{{ (datasource "local").XC_NAMESPACE }}.{{ (datasource "local").LAB_DOMAIN }}
-{{- end -}}
+~{ define "GRAFANA_HOST" -}~
+~{ (datasource "local").GRAFANA_HOST_PREFIX }~-~{ (datasource "local").XC_NAMESPACE }~.~{ (datasource "local").LAB_DOMAIN }~
+~{- end -}~
 
-{{ define "BREWZ_HOST" -}}
-{{ (datasource "local").BREWZ_HOST_PREFIX }}-{{ (datasource "local").XC_NAMESPACE }}.{{ (datasource "local").LAB_DOMAIN }}
-{{- end -}}
+~{ define "BREWZ_HOST" -}~
+~{ (datasource "local").BREWZ_HOST_PREFIX }~-~{ (datasource "local").XC_NAMESPACE }~.~{ (datasource "local").LAB_DOMAIN }~
+~{- end -}~

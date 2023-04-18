@@ -36,12 +36,14 @@ Use `kubectl` to create an ArgoCD Application resource. ArgoCD uses Application 
 
 ## Grafana Login
 
-1. In your browser, open a new tab and log into Grafana by navigating to <TODO: what is this url>
+1. In your browser, open a new tab and log into Grafana by navigating to 
+
+<TODO: what is this url>
 
 1. When presented for login credentials, enter `admin` as the username. To acquire the password, you must interrogate k8s for the secret containing the password from a terminal in the **appdev** vm:
 
     ```bash
-    XC_NAMESPACE=<your student namespace>
+    export XC_NAMESPACE=<your student namespace>
     kubectl get secret --namespace $XC_NAMESPACE grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
     ```
 
@@ -49,19 +51,30 @@ Use `kubectl` to create an ArgoCD Application resource. ArgoCD uses Application 
 
 ## Prometheus Installation
 
-TODO: add Prometheus installation steps
+1. Examine the contents of the ArgoCD Application resource by opening the `manifests/prometheus-subchart.yaml` file in Visual Studio Code. Note the `spec.source.repoUrl` is already set to your repository's helm chart folder for Prometheus. This is where ArgoCD will fetch the resources for the initial deployment, as well as monitor for changes.
+
+1. Run the following command in the VS Code terminal:
+
+    ```shell
+    kubectl apply -f manifests/prometheus-subchart.yaml
+    ```
 
 1. Verify the installation was successful by logging into Argo CD. Ensure that an application called `prometheus` has been installed, and is in sync and healthy.
 
 Although Prometheus has a user interface to query data, we will not be using it in this lab. Grafana will be querying Prometheus for the metrics data it fetched from NGINX Ingress Controller.
 
-## XC Ingress Controller
+## F5 XC Ingress Controller
 
 The Ingress Controller manages external access to HTTP services in a Kubernetes cluster using the F5 Distributed Cloud Services Platform. The ingress controller is a K8s deployment that configures the HTTP Load Balancer using the K8s ingress manifest file. The Ingress Controller automates the creation of load balancer and other required objects such as VIP, Layer 7 routes (path-based routing), advertise policy, certificate creation(k8s secrets or automatic custom certificate), etc.
 
 Though the XC Ingress Controller has some application routing features, we will be utilizing NGINX Ingress Controller for this. The value that XC Ingress Controller provides is its capability to create the necessary Load Balancer and Origin pool objects for the applications we expose - automatically, without having to spawn any custom workflows.
 
-TODO: XC Ingress installation instructions
+1. Deploy F5 XC Ingress Controller:
+
+    ```shell
+    kubectl apply -f manifests/volterra-ingress-controller-subchart.yaml
+    ```
+
 
 1. Verify the installation was successful by logging into Argo CD. Ensure that an application called `volterra-ingress-controller` has been installed, and is in sync and healthy.
 
