@@ -12,7 +12,17 @@ We will be practicing GitOps for Continuous Deployment of our applications. Argo
 
 ## Lab Architecture
 
-TODO: describe and diagram architecture
+Upon first starting the lab, an XC AppStack Managed K8s cluster has been deployed for you in an AWS VPC. An namespace for you to deploy application into has been created, and the ArgoCD application has been installed for you.
+
+Upon successful completion of this lab, the following components will have been deployed by you with the help of ArgoCD:
+
+- Grafana and Prometheus for metrics collection and analytics dashboards
+- An F5 XC Load Balancer for the Grafana UI
+- XC Ingress Controller for creation of Load Balancers & Origin Pools for service connectivity
+- NGINX Ingress Controller for advanced traffic routing
+- A microservices application called "Brewz", complete with XC Load Balancers & Origin Pools for service connectivity
+
+<img src="assets/lab-architecture.png" alt="Lab architecture" width="900"/>
 
 ## Getting Started
 
@@ -27,12 +37,13 @@ TODO: Need final link for BP
 1. You will need to fork the lab repository to your GitHub account.  If this is your first time, then take a few minutes to review the [GitHub Docs on how to Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 
     You can complete this task through the [repository GitHub UI](https://github.com/f5devcentral/techxchange-gitops-lab):
-    ![GitHub Fork](assets/gh-fork-1.png)
 
-    Note: If you are a member of any GitHub organizations, be sure to select yourself as the owner, and not an organization (such as `f5devcentral` or `nginxinc`):
+    <img src="assets/gh-fork-1.png" alt="GitHub Fork" width="700"/>
 
-    ![GitHub Fork](assets/gh-fork-2.png)
 
+    Note: If you are a member of any GitHub organizations, be sure to select **yourself** as the owner, and not an organization (such as `f5devcentral` or `nginxinc`):
+
+    <img src="assets/gh-fork-2.png" alt="GitHub Fork" width="800"/>
 
 ## Log into the **appdev** vm in the UDF Deployment
 
