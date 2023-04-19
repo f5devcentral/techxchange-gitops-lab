@@ -129,8 +129,8 @@ The Brewz developers have an issue where their APIs are not always returning a J
 1. Run the following command from a terminal in the **appdev** vm to test this output:
 
     ```bash
-    export BREWZ_URL=<your brewz application hostname>
-    curl -k https://$BREWZ_URL/api/products/1234
+    export BREWZ_URL=<your brewz application url>
+    curl $BREWZ_URL/api/products/1234
     ```
 
     Ideally, the development team will fix this issue in the API code but we can also help by performing a quick fix via our VirtualServer configuration.
@@ -164,7 +164,7 @@ The Brewz developers have an issue where their APIs are not always returning a J
 1. Now, check that an unknown product returns a JSON object by running the following command in the terminal of the **appdev** vm:
 
     ```bash
-    curl -k https://$BREWZ_URL/api/products/1234
+    curl $BREWZ_URL/api/products/1234
     ```
 
     > Your output should look like: `{"msg": "Could not find the resource!"}`

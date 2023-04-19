@@ -62,6 +62,6 @@ Now that the application has been deployed, examine the applications's deploymen
 
 1. Open the `virtual-server.yaml` file. This file contains a `VirtualServer` custom resource that NGINX Ingress Controller will consume to secure, route and shape our traffic destined for the Brewz application. Thanks to the `VirtualServer`'s `host` field, NGINX Ingress Controller will accept and route traffic associated with this host name from the XC Load Balancer to the appropriate services. We will examine the `VirtualService` and `VirtualServerRoute` resources in detail next in this lab.
 
-1. The remaining manifests are Policy resources to provide rate limiting and JWT authorization services to Brewz microservices. We will also look into these later in the lab. (TODO: verify we have time to)
+1. The remaining manifests are Policy resources to provide rate limiting and JWT authorization services to Brewz microservices.
 
 [Continue to next step...](virtualserver.md)

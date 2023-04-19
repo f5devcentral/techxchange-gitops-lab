@@ -18,7 +18,7 @@ TODO: describe and diagram architecture
 
 ## Deploy the TechXchange GitOps UDF Blueprint
 
-TODO: Need link for BP
+TODO: Need final link for BP
 
 1. Open the TechXchange GitOps Lab UDF Blueprint and deploy it in the region geographically closest to you. Start the deployment with the default suggested resource settings.
 
@@ -27,21 +27,34 @@ TODO: Need link for BP
 1. You will need to fork the lab repository to your GitHub account.  If this is your first time, then take a few minutes to review the [GitHub Docs on how to Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 
     You can complete this task through the [repository GitHub UI](https://github.com/f5devcentral/techxchange-gitops-lab):
-    ![GitHub Fork](../assets/gh_fork.jpg)
+    ![GitHub Fork](assets/gh-fork-1.png)
+
+    Note: If you are a member of any GitHub organizations, be sure to select yourself as the owner, and not an organization (such as `f5devcentral` or `nginxinc`):
+
+    ![GitHub Fork](assets/gh-fork-2.png)
+
 
 ## Log into the **appdev** vm in the UDF Deployment
 
-1. TODO: (STEPS HERE...)
+1. If the **appdev** component is not running, start it now.
+
+1. Select the **xRDP** access method in this component.
+
+1. Once the RDP file downloads, open it with your Remote Desktop Client of choice, usually by double-clicking on the downloaded file.
+
+1. When prompted to login, use the credentials that are shown in the **Documentation** tab of the **appdev** UDF component.
 
 ## Clone your workshop repository to your UDF deployment
 
 Now that you have forked the workshop repository, you'll want to clone the repo to your local laptop.  
 
+1. Configure `git` authentication in the **appdev** by following [these instructions](https://cli.github.com/manual/gh_auth_login). Later in this lab, you will require GitHub authentication to push commits back to your forked repo.
+
+1. TODO: show gh cli auth login steps
+
 1. Perform this via the git or GitHub CLI commands.
 
     > **Note:** Make sure to replace your_username with your GitHub username.
-
-    > **Note:** If you have not [configured GitHub authentication](https://docs.github.com/en/authentication) with your local laptop, please stop and do that now.
 
     ```bash
     GITHUB_USER=<your github user name>
@@ -52,9 +65,7 @@ Now that you have forked the workshop repository, you'll want to clone the repo 
 
 To test interactions with the AppStack Kubernetes cluster, you will use the `kubeconfig`. A kubeconfig configuration file has already been provided for you on the **appdev** vm.
 
-1. In the UDF blueprint, use the **xRDP** access method
-
-1. Open the **Terminal** application.
+1. In the **appdev** VM, open the **Terminal** application.
 
 1. Use kubectl to test your new configuration:
 

@@ -6,7 +6,7 @@
 
 1. In your browser, open the tab where **Grafana** is running.
 
-1. Select the **NGINX Plus Ingress Controller** dashboard from the Grafana **Dashboards** menu. The dashboard should appear:
+1. Select the **NGINX Plus Ingress Controller** dashboard from the Grafana **Dashboards** menu. The dashboard should appear. Expand all the sections so you see similar to the following:
 
     <img src="assets/grafana-nginx-ingress-dashboard.png" alt="NGINX Plus Ingress Controller dashboard" width="600"/>
 
@@ -46,6 +46,9 @@ The development team has developed and created a container image of the recommen
               image: ghcr.io/f5devcentral/spa-demo-app-recommendations:sha-8123c6f
               ports:
                 - containerPort: 8001
+              env:
+                - name: SEED_FILE
+                  value: coffeeProducts.json
     ---
     apiVersion: v1
     kind: Service
@@ -98,7 +101,6 @@ The development team has developed and created a container image of the recommen
 1. Use the **Hey** utility in the terminal of the **appdev** vm to request the **recommendations** service directly as if the Brewz SPA application was doing so:
 
     ```bash
-    BREWZ_URL=<Your Brewz url>
     hey -n 2000 -c 4 -q 10 $BREWZ_URL/api/recommendations
     ```
 
@@ -117,7 +119,7 @@ The DevOps and the application owners aren't willing to allow this error conditi
     git log -1
 
     # revert your commit
-    git revert your_commit_id
+    git revert <your_commit_id from above output>
 
     # Update origin 
     git push origin
