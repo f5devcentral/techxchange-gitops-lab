@@ -18,7 +18,11 @@ NOTE: Though we are using a single repository in this lab, it is a good practice
 
 Let's deploy the Brewz application.
 
-1. TODO: add Brewz installation steps here
+1. Deploy Brewz by running the following command in the Visual Studio Code terminal:
+
+    ```shell
+    kubectl apply -f manifests/brewz-application.yaml
+    ```
 
 ## Verify the Deployment
 
@@ -28,9 +32,9 @@ Let's deploy the Brewz application.
 
 1. In your browser, open a new tab and navigate to the XC console and log in if prompted.
 
-1. Navigate to Multi-Cloud App Connect. Ensure your namespace is selected in the top of the left menu.
+1. Navigate to **Multi-Cloud App Connect**. Ensure your namespace is selected in the top of the left menu.
 
-1. Click Manage -> Load Balancers -> HTTP Load Balancers
+1. Click *Manage -> Load Balancers -> HTTP Load Balancers*
 
 1. Review the Load Balancers that have been created for the infrastructure applications that were installed earlier, as well as for the Brewz application that was just installed.
 
@@ -38,7 +42,7 @@ Let's deploy the Brewz application.
 
 Now that the application has been deployed, examine the applications's deployment manifests.
 
-1. Locate the manifests/brewz (TODO: verify) folder in your repo.
+1. Locate the `manifests/brewz` folder in Visual Studio Code.
 
 1. The `app.yaml` file contains the application's `Deployment` and `Service` resources to install the applications pods and expose them.
 

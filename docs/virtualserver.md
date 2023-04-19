@@ -129,7 +129,7 @@ The Brewz developers have an issue where their APIs are not always returning a J
 1. Run the following command from a terminal in the **appdev** vm to test this output:
 
     ```bash
-    BREWZ_URL=<your brewz application hostname>
+    export BREWZ_URL=<your brewz application hostname>
     curl -k https://$BREWZ_URL/api/products/1234
     ```
 
