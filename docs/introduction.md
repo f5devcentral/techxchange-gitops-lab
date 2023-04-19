@@ -40,7 +40,6 @@ TODO: Need final link for BP
 
     <img src="assets/gh-fork-1.png" alt="GitHub Fork" width="700"/>
 
-
     Note: If you are a member of any GitHub organizations, be sure to select **yourself** as the owner, and not an organization (such as `f5devcentral` or `nginxinc`):
 
     <img src="assets/gh-fork-2.png" alt="GitHub Fork" width="800"/>
@@ -55,9 +54,9 @@ TODO: Need final link for BP
 
 1. When prompted to login, use the credentials that are shown in the **Documentation** tab of the **appdev** UDF component.
 
-## Clone your workshop repository to your UDF deployment
+## Clone your workshop repository
 
-Now that you have forked the workshop repository, you'll want to clone the repo to your local laptop.  
+Now that you have forked the workshop repository, you'll want to clone the repo to your lab workstation.
 
 1. Configure `git` authentication in the **appdev** by following [these instructions](https://cli.github.com/manual/gh_auth_login). Later in this lab, you will require GitHub authentication to push commits back to your forked repo.
 
