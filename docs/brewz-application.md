@@ -70,11 +70,11 @@ Now that the application has been deployed, examine the applications's deploymen
 
 1. Select the **NGINX Plus Ingress Controller** dashboard from the Grafana **Dashboards** menu. The dashboard should appear. Expand all the sections so you see similar to the following:
 
-    <img src="assets/grafana-nginx-ingress-dashboard.png" alt="NGINX Plus Ingress Controller dashboard" width="600"/>
+    <img src="assets/grafana-nginx-ingress-dashboard.png" alt="NGINX Plus Ingress Controller dashboard" width="800"/>
 
 1. By default, this dashboard does not automatically refresh. Click the refresh icon in the upper right of the screen and set the refresh value to 10 seconds.
 
-    <img src="assets/grafana-refresh.png" alt="Grafana dashboard refresh" width="160"/>
+    <img src="assets/grafana-refresh.png" alt="Grafana dashboard refresh" width="200"/>
 
 1. In your browser, open the tab where **Brewz** application is, and exercise various functions of the application.
 
