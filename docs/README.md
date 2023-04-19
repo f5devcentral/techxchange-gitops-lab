@@ -8,5 +8,7 @@
 1. [F5 Distributed Cloud (XC) Ingress](infra-apps.md#f5-xc-ingress-controller)
 1. [NGINX Ingress Controller](infra-apps.md#nginx-ingress-controller)
 1. [Brewz Application](brewz-application.md)
-1. [Canary Deployment Example](canary.md)
+1. [A/B Testing Deployment Example](ab-testing.md)
 1. [Conclusion](conclusion.md)
+
+<!-- 1. [Canary Deployment Example](canary.md) -->

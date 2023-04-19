@@ -64,4 +64,20 @@ Now that the application has been deployed, examine the applications's deploymen
 
 1. The remaining manifests are Policy resources to provide rate limiting and JWT authorization services to Brewz microservices.
 
+## Examine NGINX Dashboard in Grafana
+
+1. In your browser, open the tab where **Grafana** is running.
+
+1. Select the **NGINX Plus Ingress Controller** dashboard from the Grafana **Dashboards** menu. The dashboard should appear. Expand all the sections so you see similar to the following:
+
+    <img src="assets/grafana-nginx-ingress-dashboard.png" alt="NGINX Plus Ingress Controller dashboard" width="600"/>
+
+1. By default, this dashboard does not automatically refresh. Click the refresh icon in the upper right of the screen and set the refresh value to 10 seconds.
+
+    <img src="assets/grafana-refresh.png" alt="Grafana dashboard refresh" width="160"/>
+
+1. In your browser, open the tab where **Brewz** application is, and exercise various functions of the application.
+
+1. Return to the Grafana dashboard tab. You should start to see **Ingress Metrics** such as **Success Rates Over Time** and **Upstream Success Rate** charts start to trend upward. This is a good indication that both NGINX Ingress Controller and the Brewz application are operating correctly.
+
 [Continue to next step...](virtualserver.md)

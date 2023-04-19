@@ -171,4 +171,6 @@ The Brewz developers have an issue where their APIs are not always returning a J
 
 ## Next Steps
 
-Next, you will [look at the Canary deployment pattern](canary.md) and how to implement it with NGINX Ingress Controller.
+Next, you will [look at the A/B Testing deployment pattern](ab-testing.md) and how to implement it with NGINX Ingress Controller.
+
+<!-- Next, you will [look at the Canary deployment pattern](canary.md) and how to implement it with NGINX Ingress Controller. -->

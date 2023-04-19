@@ -26,20 +26,11 @@ spec:
     - name: recommendations
       service: recommendations
       port: 8001
-    - name: spa-dark
-      service: spa-dark
-      port: 80
     - name: checkout
       service: checkout
       port: 8003
   routes:
     - path: /
-      matches:
-        - conditions:
-          - cookie: "app_version"
-            value: "dark"
-          action:
-            pass: spa-dark
       action:
         pass: spa
     - path: /api
