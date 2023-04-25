@@ -44,7 +44,7 @@ TODO: Need final link for BP
 
     <img src="assets/gh-fork-2.png" alt="GitHub Fork" width="800"/>
 
-## Log into the **appdev** vm in the UDF Deployment
+## Log into the **appdev** VM in the UDF Deployment
 
 1. If the **appdev** component is not running, start it now.
 
@@ -54,30 +54,95 @@ TODO: Need final link for BP
 
 1. When prompted to login, use the credentials that are shown in the **Documentation** tab of the **appdev** UDF component.
 
+1. Open Visual Studio Code using the **Applications -> Development -> Visual Studio Code** menu.
+
+1. Click the **Terminal -> New Terminal** menu item to open a bash shell session if one is not already open at the bottom of the window.
+
+## Configure GitHub authentication
+
+Later in this lab, you will require GitHub authentication to push commits back to your forked repo.
+
+1. Log into GitHub using the `gh` CLI:
+
+    ```bash
+    gh auth login -h github.com -p https -w
+    ```
+
+1. Type "Y" and enter when prompted to "Authenticate Git with your GitHub credentials?"
+
+    Note: an authorization code will be shown. Copy this for use later.
+
+1. Press **Enter** to open the browser.
+
+1. Enter your GitHub username, then password.
+
+1. Enter the authorization code when prompted
+
+1. Click the **Authorize github** button on the next screen
+
 ## Clone your workshop repository
 
-Now that you have forked the workshop repository, you'll want to clone the repo to your lab workstation.
+We will now clone your forked copy of the workshop repository to your lab workstation.
 
-1. Configure `git` authentication in the **appdev** by following [these instructions](https://cli.github.com/manual/gh_auth_login). Later in this lab, you will require GitHub authentication to push commits back to your forked repo.
+1. In Visual Studio Code, configure your Git name and email by entering the following into the terminal window. These will be used for Git commit logs:
 
-1. TODO: show gh cli auth login steps
+    ```bash
+    git config --global user.email "<your work email address>"
+    git config --global user.name "<your full name>"
+    ```
 
 1. Perform this via the git or GitHub CLI commands.
 
-    > **Note:** Make sure to replace your_username with your GitHub username.
+    > **Note:** Make sure to replace `your github user name` with your GitHub username.
 
     ```bash
-    GITHUB_USER=<your github user name>
-    git clone https://github.com/$GITHUB_USER/techxchange-gitops-lab.git techxchange-gitops-lab
+    export GITHUB_USER=<your github user name>
+    git clone https://github.com/$GITHUB_USER/techxchange-gitops-lab.git
+    ```
+
+## Set up your lab environment
+
+1. In the **appdev** VM, open Visual Studio Code using the **Applications -> Development -> Visual Studio Code** menu.
+
+1. Click **File -> Open Folder...** and double-click the `~/techxchange-gitops-lab` folder and click **Open** to open the local copy of your repo. If you are prompted to trust the authors of files in this folder, select "Yes, I trust the authors".
+
+1. If the Visual Studio Code terminal is not open, click the **Terminal -> New Terminal** menu item. This will open a terminal to the root of your repository.
+
+1. Run the following command in the terminal window to generate the Kubernetes manifests you will be using in this lab:
+
+    ```shell
+    gomplate -t gomplate-templates.tmpl
+    ```
+
+1. Using the Source Control pane, stage and commit the entire contents of the `charts` and `manifests` folders that were just created for you.
+
+    <img src="assets/initial-commit.png" alt="Visual Studio Source Control commit" width="380"/>
+
+1. Push the changes to your origin repository.
+
+    <img src="assets/sync-repo.png" alt="Visual Studio Source Control sync" width="300"/>
+
+1. You may see several prompts in a row:
+
+    - If prompted "This action will push and pull...", click the **Ok** button.
+
+    - If prompted by "The extension 'GitHub' wants to sign in using GitHub", click the **Open xdg-button** button and follow the prompts
+
+    - If prompted with "Allow an extension to open this URI?", click the **Open** button.
+
+    - If prompted to "Unlock Login Keyring", enter the password you used to connect to this Ubuntu workstation, and click the **Unlock** button.
+
+1. Open a browser to your repository and verify that your changes were successfully pushed to your GitHub repo:
+
+    ```shell
+    google-chrome https://github.com/$GITHUB_USER/techxchange-gitops-lab.git
     ```
 
 ## Test AppStack Managed Kubernetes with Kubeconfig
 
 To test interactions with the AppStack Kubernetes cluster, you will use the `kubeconfig`. A kubeconfig configuration file has already been provided for you on the **appdev** vm.
 
-1. In the **appdev** VM, open the **Terminal** application.
-
-1. Use kubectl to test your new configuration:
+1. In the Visual Studio Code terminal window, use `kubectl` to test your new configuration:
 
     ```bash
     kubectl get nodes
@@ -91,24 +156,5 @@ To test interactions with the AppStack Kubernetes cluster, you will use the `kub
     ```
 
     Your Managed Kubernetes cluster is now ready to accept configuration.
-
-## Set up your lab environment
-
-1. In the **appdev** VM, open Visual Studio Code.
-
-1. Open the `~/techxchange-gitops-lab` folder in Visual Studio Code.
-
-1. Click the **Terminal -> New Terminal** menu item. This will open a terminal to the root of your repository.
-
-1. Run the following command in the terminal window to generate the Kubernetes manifests you will be using in this lab:
-
-    ```shell
-    gomplate -t gomplate-templates.tmpl
-    ```
-
-1. Stage and commit the entire contents of the `charts` and `manifests` folders that were just created for you.
-
-1. Push the changes to your origin repository.
-
 
 [Continue to next step...](argocd.md)
