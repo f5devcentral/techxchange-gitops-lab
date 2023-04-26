@@ -1,6 +1,6 @@
 namespace: your assigned xc namespace for the lab
 volt_ic_namespace: the namespace the volt ingress controller is deployed in
-appstack_site: your deployed appstack site name
+site_name: your deployed appstack site name
 
 repo_owner: your github repo owner
 repo: name of the forked lab repository

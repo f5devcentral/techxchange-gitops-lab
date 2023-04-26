@@ -41,7 +41,7 @@ deployment:
 
 config:
   url: "https://~{ (datasource "local").xc_tenant }~.console.ves.volterra.io/api"
-  siteName: "~{ (datasource "local").appstack_site }~"
+  siteName: "~{ (datasource "local").site_name }~"
   tenant: "~{ (datasource "local").xc_tenant }~-~{ (datasource "local").xc_tenant_suffix }~"
   apiCert: ""
   apiKey: ""
