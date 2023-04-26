@@ -81,7 +81,7 @@ Though the XC Ingress Controller has some application routing features, we will 
 
 1. Examine all the resources that were created for the XC Ingress Controller.
 
-1. Click on the `pod` with the name starting with **volt-ic-*.
+1. Click on the `pod` with the name starting with **volt-ic-**.
 
 1. Click the **Logs** tab. Here you will see the logs for the XC Ingress Controller pod. You should not see any errors here.
 
