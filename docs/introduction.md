@@ -50,7 +50,7 @@ TODO: Need final link for BP
 
 1. Select the **xRDP** access method in this component.
 
-1. Once the RDP file downloads, open it with your Remote Desktop Client of choice, usually by double-clicking on the downloaded file.
+1. Once the RDP file downloads, open it with your Remote Desktop client of choice, usually by double-clicking on the downloaded file.
 
 1. When prompted to login, use the credentials that are shown in the **Documentation** tab of the **appdev** UDF component.
 
