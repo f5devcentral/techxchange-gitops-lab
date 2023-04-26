@@ -1,7 +1,3 @@
-~{ define "GRAFANA_HOST" -}~
-~{ (datasource "local").GRAFANA_HOST_PREFIX }~-~{ (datasource "local").XC_NAMESPACE }~.~{ (datasource "local").LAB_DOMAIN }~
-~{- end -}~
-
-~{ define "BREWZ_HOST" -}~
-~{ (datasource "local").BREWZ_HOST_PREFIX }~-~{ (datasource "local").XC_NAMESPACE }~.~{ (datasource "local").LAB_DOMAIN }~
+~{ define "brewz_host" -}~
+~{ (datasource "local").brewz_host_prefix }~-~{ (datasource "local").namespace }~.~{ (datasource "local").lab_domain }~
 ~{- end -}~

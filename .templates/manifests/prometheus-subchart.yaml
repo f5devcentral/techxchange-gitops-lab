@@ -3,17 +3,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: prometheus
-  namespace: ~{ (datasource "local").XC_NAMESPACE }~
+  namespace: ~{ (datasource "local").namespace }~
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     path: charts/prometheus
-    repoURL: https://github.com/~{ (datasource "local").REPO_OWNER }~/~{ (datasource "local").REPO }~.git
+    repoURL: https://github.com/~{ (datasource "local").repo_owner }~/~{ (datasource "local").repo }~.git
     targetRevision: HEAD
   destination:
-    namespace: ~{ (datasource "local").XC_NAMESPACE }~
+    namespace: ~{ (datasource "local").namespace }~
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:

@@ -1,10 +1,10 @@
-XC_NAMESPACE: your assigned xc namespace for the lab
-APPSTACK_SITE: your deployed appstack site name
+namespace: your assigned xc namespace for the lab
+volt_ic_namespace: the namespace the volt ingress controller is deployed in
+appstack_site: your deployed appstack site name
 
-REPO_OWNER: your github repo owner
-REPO: name of the forked lab repository
-XC_TENANT: the lab xc tenant
-XC_TENANT_SUFFIX: the tenant identifier
-LAB_DOMAIN: the domain of the lab
-BREWZ_HOST_PREFIX: your unique hostname for the brewz app
-GRAFANA_HOST_PREFIX: your unique hostname for the grafana app
+repo_owner: your github repo owner
+repo: name of the forked lab repository
+xc_tenant: the lab xc tenant
+xc_tenant_suffix: the tenant identifier
+lab_domain: the domain of the lab
+brewz_host_prefix: your unique hostname for the brewz app

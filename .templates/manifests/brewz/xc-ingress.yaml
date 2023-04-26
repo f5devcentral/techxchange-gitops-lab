@@ -9,7 +9,7 @@ metadata:
     ingress.cloud.f5.com/max-fails: "5"
     ingress.cloud.f5.com/connection-timeout: "4000"
     ingress.cloud.f5.com/advertise-policy-type: "internet"
-    ingress.cloud.f5.com/advertise-policy-site: "outside system/~{ (datasource "local").APPSTACK_SITE }~"
+    ingress.cloud.f5.com/advertise-policy-site: "outside system/~{ (datasource "local").appstack_site }~"
     ingress.cloud.f5.com/https-auto-cert: "true" #TLS termination with auto cert
     ingress.cloud.f5.com/http-redirect: "true" #Enable HTTP to HTTPs redirect
 
@@ -21,7 +21,7 @@ metadata:
 
 spec:
   rules:
-    - host: ~{ template "BREWZ_HOST" }~
+    - host: ~{ template "brewz_host" }~
       http:
         paths:
           - path: /

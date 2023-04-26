@@ -4,7 +4,7 @@ kind: VirtualServer
 metadata:
   name: brewz-vs
 spec:
-  host: ~{ template "BREWZ_HOST" }~
+  host: ~{ template "brewz_host" }~
   tls:
     secret: brewz-tls
   upstreams:
