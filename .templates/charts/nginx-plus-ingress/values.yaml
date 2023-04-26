@@ -13,7 +13,7 @@ nginx-ingress:
       repository: private-registry.nginx.com/nginx-ic-nap-dos/nginx-plus-ingress
       tag: 3.1.0
     defaultTLS:
-      secret: ~{ (datasource "local").namespace }~/default-server-secret
+      secret: ~{ (datasource "terraform").namespace }~/default-server-secret
     nginxplus: true
     nginxStatus:
       allowCidrs: 0.0.0.0/0

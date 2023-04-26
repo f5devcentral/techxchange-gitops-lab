@@ -6,3 +6,5 @@ outputDir: .
 datasources:
   local:
     url: vars.yaml
+  terraform:
+    url: ../terraform-modular-demo-framework/tf_output_vars.yaml

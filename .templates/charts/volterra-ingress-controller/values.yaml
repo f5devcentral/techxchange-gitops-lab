@@ -2,7 +2,7 @@
 # Config Fields for volterra-ingress-controller.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-namespace: volt-ic
+namespace: ~{ (datasource "terraform").volt_ic_namespace }~
 
 # The deployment image of the Volterra ingress controller
 # NOTE: immutable tags are recommended
@@ -41,7 +41,7 @@ deployment:
 
 config:
   url: "https://~{ (datasource "local").xc_tenant }~.console.ves.volterra.io/api"
-  siteName: "~{ (datasource "local").site_name }~"
+  siteName: "~{ (datasource "terraform").site_name }~"
   tenant: "~{ (datasource "local").xc_tenant }~-~{ (datasource "local").xc_tenant_suffix }~"
   apiCert: ""
   apiKey: ""

@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: volterra-ingress-controller
-  namespace: ~{ (datasource "local").namespace }~
+  namespace: ~{ (datasource "terraform").namespace }~
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -13,7 +13,7 @@ spec:
     repoURL: https://github.com/~{ (datasource "local").repo_owner }~/~{ (datasource "local").repo }~.git
     targetRevision: HEAD
   destination:
-    namespace: ~{ (datasource "local").volt_ic_namespace }~
+    namespace: ~{ (datasource "terraform").volt_ic_namespace }~
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
