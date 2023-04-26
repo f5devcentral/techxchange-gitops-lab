@@ -98,7 +98,7 @@ The development team has developed and created a container image of the recommen
 
     Once the configuration is deployed, NGINX Ingress Controller will reload NGINX, and the **Reloads** metric on the Grafana dashboard should increment.
 
-1. Use the **Hey** utility in the terminal of the **appdev** vm to request the **recommendations** service directly as if the Brewz SPA application was doing so:
+1. Use the **Hey** utility in the terminal of the **devbox** vm to request the **recommendations** service directly as if the Brewz SPA application was doing so:
 
     ```bash
     hey -n 2000 -c 4 -q 10 $BREWZ_URL/api/recommendations
@@ -129,7 +129,7 @@ The DevOps and the application owners aren't willing to allow this error conditi
 
     > **Note:** In the lab environment, at times Argo CD may not immediately detect and deploy the changes. If this is the case, click the **Refresh** button on the **brewz** application in Argo CD.
 
-1. Once the revert is successful, use the **Hey** utility in the terminal of the **appdev** vm to request the **recommendations** service directly as if the Brewz SPA application was doing so:
+1. Once the revert is successful, use the **Hey** utility in the terminal of the **devbox** vm to request the **recommendations** service directly as if the Brewz SPA application was doing so:
 
     ```bash
     BREWZ_URL=<Your Brewz url>

@@ -32,6 +32,26 @@ TODO: Need final link for BP
 
 1. Open the TechXchange GitOps Lab UDF Blueprint and deploy it in the region geographically closest to you. Start the deployment with the default suggested resource settings.
 
+
+## Trigger build of lab environment
+
+1. If the **devbox** component is not running, start it now.
+
+1. Select the **xRDP** access method in this component.
+
+1. Once the RDP file downloads, open it with your Remote Desktop client of choice, usually by double-clicking on the downloaded file.
+
+1. When prompted to login, use the credentials that are shown in the **Documentation** tab of the **devbox** UDF component.
+
+1. Open a terminal and run the following command to switch to the infrastructure branch we will use for this lab:
+
+    ```bash
+    cd ~/terraform-modular-demo-framework && git checkout gitops-lab
+    ```
+
+1. TODO: walk student through starting terragrunt apply all
+
+
 ## Fork the lab repository
 
 1. You will need to fork the lab repository to your GitHub account.  If this is your first time, then take a few minutes to review the [GitHub Docs on how to Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
@@ -44,15 +64,15 @@ TODO: Need final link for BP
 
     <img src="assets/gh-fork-2.png" alt="GitHub Fork" width="800"/>
 
-## Log into the **appdev** VM in the UDF Deployment
+## Log into the **devbox** VM in the UDF Deployment
 
-1. If the **appdev** component is not running, start it now.
+1. If the **devbox** component is not running, start it now.
 
 1. Select the **xRDP** access method in this component.
 
 1. Once the RDP file downloads, open it with your Remote Desktop client of choice, usually by double-clicking on the downloaded file.
 
-1. When prompted to login, use the credentials that are shown in the **Documentation** tab of the **appdev** UDF component.
+1. When prompted to login, use the credentials that are shown in the **Documentation** tab of the **devbox** UDF component.
 
 1. Open Visual Studio Code using the **Applications -> Development -> Visual Studio Code** menu.
 
@@ -102,7 +122,7 @@ We will now clone your forked copy of the workshop repository to your lab workst
 
 ## Set up your lab environment
 
-1. In the **appdev** VM, open Visual Studio Code using the **Applications -> Development -> Visual Studio Code** menu.
+1. In the **devbox** VM, open Visual Studio Code using the **Applications -> Development -> Visual Studio Code** menu.
 
 1. Click **File -> Open Folder...** and double-click the `~/techxchange-gitops-lab` folder and click **Open** to open the local copy of your repo. If you are prompted to trust the authors of files in this folder, select "Yes, I trust the authors".
 
@@ -140,7 +160,7 @@ We will now clone your forked copy of the workshop repository to your lab workst
 
 ## Test AppStack Managed Kubernetes with Kubeconfig
 
-To test interactions with the AppStack Kubernetes cluster, you will use the `kubeconfig`. A kubeconfig configuration file has already been provided for you on the **appdev** vm.
+To test interactions with the AppStack Kubernetes cluster, you will use the `kubeconfig`. A kubeconfig configuration file has already been provided for you on the **devbox** vm.
 
 1. In the Visual Studio Code terminal window, use `kubectl` to test your new configuration:
 

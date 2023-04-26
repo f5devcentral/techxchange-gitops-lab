@@ -10,7 +10,7 @@ This is a fundamental tenet in GitOps: Source control is the source of truth for
 
 ## Login to Argo CD
 
-1. Obtain the Argo CD password by running the following from a terminal in the **appdev** vm:
+1. Obtain the Argo CD password by running the following from a terminal in the **devbox** vm:
 
     ```bash
     echo $ARGOCD_PASSWORD
