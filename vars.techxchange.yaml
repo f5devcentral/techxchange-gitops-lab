@@ -1,0 +1,4 @@
+# Local vars
+repo: techxchange-gitops-lab
+lab_domain: labs.f5demos.com
+brewz_host_prefix: brewz

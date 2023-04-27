@@ -5,6 +5,6 @@ inputDir: .templates/
 outputDir: .
 datasources:
   local:
-    url: vars.yaml
+    url: vars.techxchange.yaml
   terraform:
     url: ../terraform-modular-demo-framework/tf_output_vars.yaml

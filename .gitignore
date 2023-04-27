@@ -6,4 +6,3 @@ tmp/**
 vars.yaml
 **/*kubeconfig*.yaml
 .DS_Store
-vars.techxchange.yaml
