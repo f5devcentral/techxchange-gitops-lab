@@ -46,7 +46,7 @@ TODO: Need final link for BP
 1. Open a terminal and run the following command to switch to the infrastructure branch we will use for this lab:
 
     ```bash
-    cd ~/terraform-modular-demo-framework && git checkout gitops-lab
+    cd ~/terraform-modular-demo-framework && git checkout gitops-lab-merge
     ```
 
 1. TODO: walk student through starting terragrunt apply all

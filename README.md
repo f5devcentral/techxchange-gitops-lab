@@ -19,6 +19,17 @@ Each student needs:
 - F5 Distributed Cloud (XC) Ingress Secret is created in `volt-ic` namespace in the cluster
 - NGINX container registry pull Secret is created in student namespace in the cluster
 
+## Utilities Needed in UDF Blueprint (already installed for you)
+
+- jq
+- yq
+- hey
+- openssl
+- gh (github cli)
+- kubectl (v1.25.9)
+- curl
+- gomplate
+
 ## UDF Blueprint
 
 TODO: Add this
