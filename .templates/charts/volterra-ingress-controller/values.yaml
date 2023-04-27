@@ -49,4 +49,4 @@ config:
 # @param existingSecret Existing secret name with volt-ic-secret credentials (keys: `ApiCert`, `ApiKey`)
 # NOTE: When it's set the previous apiCert and apiKey are ignored.
 # NOTE: existingSecret needs to be in the same namespace as deployment
-existingSecret: "f5xc-api-secret"
+existingSecret: "volt-ic-secret"
