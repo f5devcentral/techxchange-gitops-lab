@@ -8,10 +8,9 @@ metadata:
     ingress.cloud.f5.com/lb-method: random
     ingress.cloud.f5.com/max-fails: "5"
     ingress.cloud.f5.com/connection-timeout: "4000"
-    ingress.cloud.f5.com/advertise-policy-type: "internet"
-    ingress.cloud.f5.com/advertise-policy-site: "outside system/~{ (datasource "terraform").site_name }~"
-    ingress.cloud.f5.com/https-auto-cert: "true" #TLS termination with auto cert
-    ingress.cloud.f5.com/http-redirect: "true" #Enable HTTP to HTTPs redirect
+    ingress.cloud.f5.com/https-auto-cert: "false"   #TLS termination with auto cert
+    ingress.cloud.f5.com/http-redirect: "false"     #Enable HTTP to HTTPs redirect
+    ingress.cloud.f5.com/public-ip-address: ~{ (datasource "terraform").argocd_lb_ip_address }~ # Tenant Static IP Address
 
     # Load Balancer Route annotations
     ingress.cloud.f5.com/disable-host-rewrite: "nic-nginx-ingress-controller"
@@ -20,6 +19,10 @@ metadata:
     ingress.cloud.f5.com/ssl-services: "nic-nginx-ingress-controller"
 
 spec:
+  tls:
+    - hosts:
+      - ~{ template "brewz_host" }~
+      secretName: ~{ (datasource "terraform").xc_lb_lab_tls_secret_name }~
   rules:
     - host: ~{ template "brewz_host" }~
       http:
