@@ -1,3 +1,11 @@
 ~{ define "brewz_host" -}~
 ~{ (datasource "local").brewz_host_prefix }~-~{ (datasource "terraform").namespace }~.~{ (datasource "local").lab_domain }~
 ~{- end -}~
+
+~{ define "tenant_prefix" -}~
+~{ regexp.Replace "-[A-Za-z0-9]+$" "" (datasource "terraform").volterra_tenant }~
+~{- end -}~
+
+~{ define "tenant_suffix" -}~
+~{ regexp.Replace "[A-Za-z0-9]+-" "" (datasource "terraform").volterra_tenant }~
+~{- end -}~

@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     path: manifests/brewz
-    repoURL: https://github.com/~{ (datasource "local").repo_owner }~/~{ (datasource "local").repo }~.git
+    repoURL: https://github.com/~{ env.Getenv "GITHUB_USER" }~/~{ (datasource "local").repo }~.git
     targetRevision: HEAD
   destination:
     namespace: ~{ (datasource "terraform").namespace }~

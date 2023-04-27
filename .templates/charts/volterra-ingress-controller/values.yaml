@@ -40,9 +40,9 @@ deployment:
 #      The api_key and api_cert should be stored in secret.yaml, but you can also use vault to store them
 
 config:
-  url: "https://~{ (datasource "local").xc_tenant }~.console.ves.volterra.io/api"
+  url: "https://~{ template "tenant_prefix" }~.console.ves.volterra.io/api"
   siteName: "~{ (datasource "terraform").site_name }~"
-  tenant: "~{ (datasource "local").xc_tenant }~-~{ (datasource "local").xc_tenant_suffix }~"
+  tenant: "~{ template "tenant_prefix" }~-~{ template "tenant_suffix" }~"
   apiCert: ""
   apiKey: ""
 

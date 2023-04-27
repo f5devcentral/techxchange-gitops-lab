@@ -1,7 +1,4 @@
 # Local vars
-repo_owner: your github repo owner
 repo: name of the forked lab repository
-xc_tenant: the lab xc tenant
-xc_tenant_suffix: the tenant identifier
 lab_domain: the domain of the lab
 brewz_host_prefix: your unique hostname for the brewz app
