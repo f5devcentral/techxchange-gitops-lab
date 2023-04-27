@@ -111,7 +111,7 @@ We will now clone your forked copy of the workshop repository to your lab workst
     git config --global user.name "<your full name>"
     ```
 
-1. Perform this via the git or GitHub CLI commands.
+1. Clone your repository via the git command:
 
     > **Note:** Make sure to replace `your github user name` with your GitHub username.
 
