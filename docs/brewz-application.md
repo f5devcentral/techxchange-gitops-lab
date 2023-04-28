@@ -14,7 +14,7 @@ Since the application developers are *also* committed to GitOps, we'll deploy th
 
 Though Argo CD deployed the infrastructure applications with Helm, the developers have chosen to deploy this application using simple Kubernetes manifests.
 
-NOTE: Though we are using a single repository in this lab, it is a good practice to use different repositories for infrastructure apps, and user applications (such as Brewz). This way, appropriate access to each repo is granted based on area of responsibility.
+> **Note:** Though we are using a single repository in this lab, it is a good practice to use different repositories for infrastructure apps, and user applications (such as Brewz). This way, appropriate access to each repo is granted based on area of responsibility.
 
 Let's deploy the Brewz application.
 
@@ -28,7 +28,7 @@ Let's deploy the Brewz application.
 
 1. Verify the installation was successful by logging into Argo CD. Ensure that an application called `brewz` has been installed, and is in sync and healthy.
 
-1. In your browser, open a new tab and enter <TODO: what is this url> to see the Brewz application is live.
+1. In your browser, open a new tab and enter `https://brewz-<your namespace>.labs.f5demos.com` to see the Brewz application is live.
 
 1. In your browser, open a new tab and navigate to the XC console and log in if prompted.
 
@@ -48,15 +48,15 @@ Now that the application has been deployed, examine the applications's deploymen
 
 1. The `mongo-init.yaml` file contains a `ConfigMap` resource containing the JSON data used to seed the MongoDB database.
 
-1. The `xc-ingress` file contains an `Ingress` resource with custom annotations. The XC Ingress Controller monitors the cluster for these resources. When this type of resource is deployed, the XC Ingress controller will use the `Ingress` resource details and annotations to:
+1. The `xc-ingress.yaml` file contains an `Ingress` resource with custom annotations. The XC Ingress Controller monitors the cluster for these resources. When this type of resource is deployed, the XC Ingress controller will use the `Ingress` resource details and annotations to:
     - Create an XC Origin pool that points to the NGINX Ingress Controller's service on port 443 in the specified AppStack site
-    - Create an XC HTTP Load Balancer for the host name <TODO: need url>, complete with DNS entry
+    - Create an XC HTTP Load Balancer for the host name `https://brewz-<your namespace>.labs.f5demos.com`, responding on an existing Public IP available in this tenant
     - Creates a single XC Load Balancer Route for the path `/` set to the Origin Pool created above
     - Sets the Load Balancer to preserve the host name when routing traffic to the NGINX Ingress Controller Service
 
     <br>
 
-    Note: There are comments in the file indicating which groups of annotations are associated with each XC object created above.
+    > **Note:** There are comments in the file indicating which groups of annotations are associated with each XC object created above.
 
     How does traffic get to our application?
 
@@ -80,4 +80,4 @@ Now that the application has been deployed, examine the applications's deploymen
 
 1. Return to the Grafana dashboard tab. You should start to see **Ingress Metrics** such as **Success Rates Over Time** and **Upstream Success Rate** charts start to trend upward. This is a good indication that both NGINX Ingress Controller and the Brewz application are operating correctly.
 
-[Continue to next step...](virtualserver.md)
+[Continue to next section...](virtualserver.md)

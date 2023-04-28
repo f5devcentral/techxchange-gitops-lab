@@ -26,6 +26,8 @@ Upon successful completion of this lab, the following components will have been 
 
 ## Getting Started
 
+**You will need a GitHub Account for this lab. If you do not have one, go set one up at [GitHub](https://github.com/), then resume this lab. Make note of your username, as you will need it later in this lab.**
+
 ## Deploy the TechXchange GitOps UDF Blueprint
 
 TODO: Need final link for BP
@@ -33,7 +35,6 @@ TODO: Need final link for BP
 1. Open the TechXchange GitOps Lab UDF Blueprint and deploy it in the region geographically closest to you. Start the deployment with the default suggested resource settings.
 
 ## Log into the **devbox** VM in the UDF Deployment
-
 
 1. If the **devbox** component is not running, start it now.
 
@@ -51,7 +52,11 @@ TODO: Need final link for BP
     cd ~/terraform-modular-demo-framework && git checkout gitops-lab-merge
     ```
 
-1. TODO: walk student through starting terragrunt apply all
+1. Run the following script to initiate the infrastructure build for this lab:
+
+    ```bash
+    ./gitops-lab/bootstrap-cluster.sh 
+    ```
 
 ## Fork the lab repository
 
@@ -61,11 +66,9 @@ TODO: Need final link for BP
 
     <img src="assets/gh-fork-1.png" alt="GitHub Fork" width="700"/>
 
-    Note: If you are a member of any GitHub organizations, be sure to select **yourself** as the owner, and not an organization (such as `f5devcentral` or `nginxinc`):
+    > **Note:** If you are a member of any GitHub organizations, be sure to select **yourself** as the owner, and not an organization (such as `f5devcentral` or `nginxinc`):
 
     <img src="assets/gh-fork-2.png" alt="GitHub Fork" width="800"/>
-
-
 
 1. In Visual Studio Code in the **devbox** VM, click **File -> New Window**
 
@@ -104,15 +107,19 @@ We will now clone your forked copy of the workshop repository to your lab workst
     git config --global user.name "<your full name>"
     ```
 
-1. Clone your repository via the git command:
+1. Create an environment variable with your GitHub username:
 
-    > **Note:** Make sure to replace `your github user name` with your GitHub username.
+    > **Note:** Make sure to replace `<your github user name>` with actual your GitHub username.
+
+    ```bash
+    export GITHUB_USER=<your github user name>
+    ```
+
+1. Clone your repository via the git command:
 
     ```bash
     cd ~
-    export GITHUB_USER=<your github user name>
     git clone https://github.com/$GITHUB_USER/techxchange-gitops-lab.git
-
     ```
 
 1. Click **File -> Open Folder** and select the `techxchange-gitops-lab` folder that was just created from the command above.
@@ -121,7 +128,9 @@ We will now clone your forked copy of the workshop repository to your lab workst
 
 1. Click the **Terminal -> New Terminal** menu item to open a bash shell session if one is not already open at the bottom of the window.
 
-1. Run the following command in the terminal window to generate the Kubernetes manifests you will be using in this lab:
+1. Run the following command in the terminal window to generate personalized Kubernetes manifests you will be using in this lab:
+
+    > **Note:** Since this is a new bash session, you will once again need to specify your GitHub username. Make sure to replace `<your github user name>` with actual your GitHub username.
 
     ```shell
     export GITHUB_USER=<your github user name>
@@ -146,7 +155,7 @@ We will now clone your forked copy of the workshop repository to your lab workst
 
     - If prompted to "Unlock Login Keyring", enter the password you used to connect to this Ubuntu workstation, and click the **Unlock** button.
 
-1. Open a browser to your repository and verify that your changes were successfully pushed to your GitHub repo:
+1. Use the terminal to open the Chrome browser to your repository and verify that your changes were successfully pushed to your GitHub repo:
 
     ```shell
     google-chrome https://github.com/$GITHUB_USER/techxchange-gitops-lab.git
@@ -167,8 +176,10 @@ To test interactions with the AppStack Kubernetes cluster, you will use the `kub
     ```shell
     NAME                                        STATUS   ROLES        AGE   VERSION
     ip-100-64-1-16.us-east-2.compute.internal   Ready    ves-master   86m   v1.23.14-ves
+    ip-100-64-1-17.us-east-2.compute.internal   Ready    ves-master   87m   v1.23.14-ves
+    ip-100-64-1-18.us-east-2.compute.internal   Ready    ves-master   88m   v1.23.14-ves
     ```
 
-    Your Managed Kubernetes cluster is now ready to accept configuration.
+    Your AppStack Managed Kubernetes cluster is now ready to accept configuration.
 
-[Continue to next step...](argocd.md)
+[Continue to next section...](argocd.md)

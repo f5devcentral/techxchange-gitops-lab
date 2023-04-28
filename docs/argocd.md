@@ -10,18 +10,27 @@ This is a fundamental tenet in GitOps: Source control is the source of truth for
 
 ## Login to Argo CD
 
+1. Run this command to find your assigned namespace for this lab:
+
+    ```bash
+    export XC_NAMESPACE=`cat ~/terraform-modular-demo-framework/tf_output_vars.yaml | yq '.namespace'`
+    echo $XC_NAMESPACE
+    ```
+
+1. In your browser, navigate to `https://argocd-<your namespace>.labs.f5demos.com`
+
 1. Obtain the Argo CD password by running the following from a terminal in the **devbox** vm:
 
     ```bash
-    echo $ARGOCD_PASSWORD
+    cat ~/terraform-modular-demo-framework/tf_output_vars.yaml | yq '.argocd_password'
     ```
-
-1. In your browser, navigate to <your namespace>-argocd.sales-demo.f5demos.com
 
 1. Login with the `admin` user and the password you obtained above.
 
-1. In the Argo CD UI, note that there are no applications TODO: Add screenshot
+1. In the Argo CD UI, note that there are no applications:
+
+    <img src="assets/argocd-empty.png" alt="ArgoCD with no projects" width="700"/>
 
 Next, we will deploy additional applications to your Kubernetes cluster leveraging Argo CD.
 
-[Continue to next step...](infra-apps.md)
+[Continue to next section...](infra-apps.md)

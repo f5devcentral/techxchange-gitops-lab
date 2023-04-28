@@ -14,25 +14,25 @@ Each student needs:
 
 - AppStack is installed in a CSP as Managed Kubernetes node
 - ArgoCD is installed via automation
-- ArgoCD Load Balancer is created via automation (TODO: need this to be HTTPs with a Let's Encrypt certificate)
+- ArgoCD Load Balancer and Origin Pool is created via automation
+- Grafana Load Balancer and Origin Pool is created via automation
 - Student and `volt-ic` namespaces are created in the cluster
 - F5 Distributed Cloud (XC) Ingress Secret is created in `volt-ic` namespace in the cluster
-- NGINX container registry pull Secret is created in student namespace in the cluster
+- NGINX container registry pull secret is created in student namespace in the cluster
 
 ## Utilities Needed in UDF Blueprint (already installed for you)
 
-- jq
-- yq
-- hey
-- openssl
-- gh (github cli)
-- kubectl (v1.25.9)
-- curl
-- gomplate
+- [jq](https://stedolan.github.io/jq/)
+- [yq](https://github.com/mikefarah/yq)
+<!-- - [hey](https://github.com/rakyll/hey) -->
+- [gh (github cli)](https://cli.github.com/)
+- [kubectl (v1.25.9)](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
+- [curl](https://curl.se/docs/manpage.html)
+- [gomplate](https://docs.gomplate.ca/)
 
 ## UDF Blueprint
 
-TODO: Add this
+TODO: Need final link for BP
 
 ## Lab guide
 

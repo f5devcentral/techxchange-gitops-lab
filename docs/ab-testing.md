@@ -81,8 +81,7 @@ We need to deploy the new variant of the SPA application, so we can conditionall
 
     > **Note:** In the lab environment, at times Argo CD may not immediately detect and deploy the changes. If this is the case, click the **Refresh** button on the **brewz** application in Argo CD.
 
-1. In your browser, open your tab where the Brewz application is loaded. Refresh the browser. Note that the application looks the same as it was when deployed.
-<TODO: what is this url>
+1. In your browser, open your tab where the Brewz application (`https://brewz-<your namespace>.labs.f5demos.com`) is loaded. Refresh the browser. Note that the application looks the same as it was when deployed.
 
 1. Duplicate this tab, and open the browser's developer tools.
 
@@ -92,4 +91,4 @@ We need to deploy the new variant of the SPA application, so we can conditionall
 
 1. Refresh the browser tab. You should see a different design for the Brewz application, notably that the background and font colors are different.
 
-[Continue to closing statements...](conclusion.md)
+[Continue to the lab conclusion...](conclusion.md)
