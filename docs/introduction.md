@@ -49,13 +49,14 @@ TODO: Need final link for BP
 1. Open a terminal and run the following command to switch to the infrastructure branch we will use for this lab:
 
     ```bash
-    cd ~/terraform-modular-demo-framework && git checkout gitops-lab-merge
+    cd ~/terraform-modular-demo-framework
+    git checkout gitops-lab-merge
     ```
 
 1. Run the following script to initiate the infrastructure build for this lab:
 
     ```bash
-    ./gitops-lab/bootstrap-cluster.sh 
+    ./gitops-lab/setup-lab-environment.sh 
     ```
 
 ## Fork the lab repository

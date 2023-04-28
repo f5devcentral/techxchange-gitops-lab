@@ -6,16 +6,15 @@ When the complexity of a orchestrating a deployment and traffic management is re
 
 ## Lab Teardown
 
-1. In any terminal of the **devbox** VM, run the following to initiate teardown of the infrastructure built for this lab:
+1. In any terminal of the **devbox** VM, run the following script to initiate teardown of the infrastructure built for this lab:
 
     ```bash
-    cd ~/terraform-modular-demo-framework
-    terragrunt run-all destroy 
+    ./gitops-lab/teardown-lab-environment.sh 
     ```
 
 1. Confirm destroy if prompted.
 
-    > **Note:** Ensure that the command has completed successfully before disconnecting from the VM
+    > **Note:** Ensure that the script has completed successfully before disconnecting from the VM.
 
 1. Shut down and delete the UDF deployment.
 
