@@ -59,6 +59,8 @@ TODO: Need final link for BP
     ./gitops-lab/setup-lab-environment.sh 
     ```
 
+    > **Note:** When prompted to apply, type `y` then enter.
+
 ## Fork the lab repository
 
 1. On your desktop (not the lab VM), you will need to fork the lab repository to your GitHub account. If this is your first time, then take a few minutes to review the [GitHub Docs on how to Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
@@ -175,10 +177,10 @@ To test interactions with the AppStack Kubernetes cluster, you will use the `kub
     You should see the Kubernetes node in an output similar to this:
 
     ```shell
-    NAME                                        STATUS   ROLES        AGE   VERSION
-    ip-100-64-1-16.us-east-2.compute.internal   Ready    ves-master   86m   v1.23.14-ves
-    ip-100-64-1-17.us-east-2.compute.internal   Ready    ves-master   87m   v1.23.14-ves
-    ip-100-64-1-18.us-east-2.compute.internal   Ready    ves-master   88m   v1.23.14-ves
+    NAME                                         STATUS   ROLES        AGE   VERSION
+    ip-100-64-1-95.us-east-2.compute.internal    Ready    ves-master   12m   v1.23.14-ves
+    ip-100-64-4-113.us-east-2.compute.internal   Ready    ves-master   12m   v1.23.14-ves
+    ip-100-64-7-200.us-east-2.compute.internal   Ready    ves-master   12m   v1.23.14-ves
     ```
 
     Your AppStack Managed Kubernetes cluster is now ready to accept configuration.
