@@ -157,9 +157,9 @@ The Brewz developers have an issue where their APIs are not always returning a J
     ...
     ```
 
-1. Commit the `manifests/brewz/virtual-server.yaml` file to your local repository, then push it to your remote repository. Argo CD will pick up the most recent changes, and deploy them for you.
+1. Commit the `manifests/brewz/virtual-server.yaml` file to your local repository, then push it to your remote repository. ArgoCD will pick up the most recent changes, and deploy them for you.
 
-    > **Note:** In the lab environment, at times Argo CD may not immediately detect and deploy the changes. If this is the case, click the **Refresh** button on the **brewz** application in Argo CD.
+    > **Note:** In the lab environment, at times ArgoCD may not immediately detect and deploy the changes. If this is the case, click the **Refresh** button on the **brewz** application in ArgoCD.
 
 1. Now, check that an unknown product returns a JSON object by running the following command in the terminal of the **devbox** vm:
 

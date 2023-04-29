@@ -6,7 +6,7 @@ Typically a platform operations engineer will ensure these services are availabl
 
 We will introduce and deploy a few of these "infrastructure apps".
 
-> **Note:** For learning purposes, in this lab we are manually creating the configurations that instruct Argo CD to deploy applications one at a time. In a real-world scenario, we should automate both the creation of the AppStack Managed Kubernetes cluster, the installation of Argo CD, complete with all application configurations to be installed once the cluster is available without requiring any additional intervention.
+> **Note:** For learning purposes, in this lab we are manually creating the configurations that instruct ArgoCD to deploy applications one at a time. In a real-world scenario, we should automate both the creation of the AppStack Managed Kubernetes cluster, the installation of ArgoCD, complete with all application configurations to be installed once the cluster is available without requiring any additional intervention.
 
 ## Metrics and Visibility
 
@@ -18,7 +18,7 @@ You will install both Grafana and Prometheus into your Kubernetes cluster.
 
 ## Grafana Installation
 
-We will leverage Argo CD to install NGINX Ingress Controller for us, leveraging Helm Charts.
+We will leverage ArgoCD to install NGINX Ingress Controller for us, leveraging Helm Charts.
 
 [Helm](https://helm.sh/) helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application with minimal, declarative configuration.
 
@@ -32,7 +32,7 @@ Use `kubectl` to create an ArgoCD Application resource. ArgoCD uses Application 
     kubectl apply -f manifests/grafana-subchart.yaml
     ```
 
-1. Verify the installation was successful by logging into Argo CD. Ensure that an application called `grafana` has been installed, and is in sync and healthy.
+1. Verify the installation was successful by logging into ArgoCD. Ensure that an application called `grafana` has been installed, and is in sync and healthy.
 
 ## Grafana Login
 
@@ -58,7 +58,7 @@ Use `kubectl` to create an ArgoCD Application resource. ArgoCD uses Application 
     kubectl apply -f manifests/prometheus-subchart.yaml
     ```
 
-1. Verify the installation was successful by logging into Argo CD. Ensure that an application called `prometheus` has been installed, and is in sync and healthy.
+1. Verify the installation was successful by logging into ArgoCD. Ensure that an application called `prometheus` has been installed, and is in sync and healthy.
 
 Although Prometheus has a user interface to query data, we will not be using it in this lab. Grafana will be querying Prometheus for the metrics data it fetched from NGINX Ingress Controller.
 
@@ -74,7 +74,7 @@ Though the XC Ingress Controller has some application routing features, we will 
     kubectl apply -f manifests/volterra-ingress-controller-subchart.yaml
     ```
 
-1. Verify the installation was successful by logging into Argo CD. Ensure that an application called `volterra-ingress-controller` has been installed, and is in sync and healthy.
+1. Verify the installation was successful by logging into ArgoCD. Ensure that an application called `volterra-ingress-controller` has been installed, and is in sync and healthy.
 
 1. Click on the created `volterra-ingress-controller` application card in ArgoCD.
 
@@ -98,7 +98,7 @@ In the case of NGINX, the Ingress Controller is deployed in a pod along with the
 
 ### NGINX Ingress Controller Installation
 
-We will again leverage Argo CD to install NGINX Ingress Controller for us, leveraging Helm charts.
+We will again leverage ArgoCD to install NGINX Ingress Controller for us, leveraging Helm charts.
 
 1. Deploy NGINX Ingress Controller by running the following command in the Visual Studio Code terminal:
 
@@ -106,7 +106,7 @@ We will again leverage Argo CD to install NGINX Ingress Controller for us, lever
     kubectl apply -f manifests/nginx-ingress-subchart.yaml
     ```
 
-1. Verify the installation was successful by logging into Argo CD. Ensure that an application called `nic` has been installed, and is in sync and healthy.
+1. Verify the installation was successful by logging into ArgoCD. Ensure that an application called `nic` has been installed, and is in sync and healthy.
 
 Now, the installation of our "infrastructure apps" is complete!
 

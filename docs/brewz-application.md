@@ -10,9 +10,9 @@ This is a simple diagram depicting the design of the Brewz application and its m
 
 Now that we have a working platform with essential infrastructure applications installed, you as application developer can deploy the Brewz application.
 
-Since the application developers are *also* committed to GitOps, we'll deploy the Brewz application in a similar way to what we've done so far. The Brewz application code is already in Git, so developers are already comfortable with it. It is reasonable for them to also rely on Git for the application's deployment artifacts, and enjoy the benefit of Argo CD handling deployments for them.
+Since the application developers are *also* committed to GitOps, we'll deploy the Brewz application in a similar way to what we've done so far. The Brewz application code is already in Git, so developers are already comfortable with it. It is reasonable for them to also rely on Git for the application's deployment artifacts, and enjoy the benefit of ArgoCD handling deployments for them.
 
-Though Argo CD deployed the infrastructure applications with Helm, the developers have chosen to deploy this application using simple Kubernetes manifests.
+Though ArgoCD deployed the infrastructure applications with Helm, the developers have chosen to deploy this application using simple Kubernetes manifests.
 
 > **Note:** Though we are using a single repository in this lab, it is a good practice to use different repositories for infrastructure apps, and user applications (such as Brewz). This way, appropriate access to each repo is granted based on area of responsibility.
 
@@ -26,7 +26,7 @@ Let's deploy the Brewz application.
 
 ## Verify the Deployment
 
-1. Verify the installation was successful by logging into Argo CD. Ensure that an application called `brewz` has been installed, and is in sync and healthy.
+1. Verify the installation was successful by logging into ArgoCD. Ensure that an application called `brewz` has been installed, and is in sync and healthy.
 
 1. In your browser, open a new tab and enter `https://brewz-<your namespace>.labs.f5demos.com` to see the Brewz application is live.
 

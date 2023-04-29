@@ -8,7 +8,7 @@ As an ideal, application code should be versioned and maintained in s secure Sou
 
 GitOps is an operational framework that takes DevOps best practices used for application development such as version control, collaboration, compliance, and CI/CD, and applies them to infrastructure automation.
 
-We will be practicing GitOps for Continuous Deployment of our applications. Argo CD is the tool we will be using to watch your lab repository for changes, and automatically deploy updated resources to Kubernetes for you.
+We will be practicing GitOps for Continuous Deployment of our applications. ArgoCD is the tool we will be using to watch your lab repository for changes, and automatically deploy updated resources to Kubernetes for you.
 
 ## Lab Architecture
 
