@@ -106,6 +106,8 @@ Upon successful completion of this lab, the following components will have been 
 
 1. In the **devbox** VM, Open Visual Studio Code, then click **File -> New Window**
 
+    > **Note:** If you are prompted with a *Authentication required* prompt to *Unlock Login Keyring*, then enter the same credentials used to RDP into the jumphost.
+
 1. Click the **Terminal -> New Terminal** menu item to open a bash shell session if one is not already open at the bottom of the window.
 
 ## Configure GitHub authentication
