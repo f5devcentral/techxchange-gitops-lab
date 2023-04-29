@@ -64,7 +64,7 @@ Upon successful completion of this lab, the following components will have been 
 
     > **Note:** If you already have an account in the `f5-sales-demo` XC tenant, you can simply log in with your existing credentials.
 
-1. Once you are logged into the tenant, navigate to **Multi-Cloud App Connect*.
+1. Once you are logged into the tenant, navigate to **Multi-Cloud App Connect**.
 
 1. In the URL, you will find the namespace that has been randomly generated for you:
 
