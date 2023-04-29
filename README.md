@@ -32,7 +32,7 @@ Each student needs:
 
 ## UDF Blueprint
 
-TODO: Need final link for BP
+For this lab, use the [Terraform Modular Demo Framework UDF blueprint](https://udf.f5.com/b/99ed0091-30c5-4a2d-b8e0-e29574980c46#documentation).
 
 ## Lab guide
 

@@ -30,19 +30,49 @@ Upon successful completion of this lab, the following components will have been 
 
 ## Deploy the TechXchange GitOps UDF Blueprint
 
-TODO: Need final link for BP
+1. In your browser, navigate to the [Terraform Modular Demo Framework](https://udf.f5.com/b/99ed0091-30c5-4a2d-b8e0-e29574980c46#documentation) blueprint.
 
-1. Open the TechXchange GitOps Lab UDF Blueprint and deploy it in the region geographically closest to you. Start the deployment with the default suggested resource settings.
+1. Click the **Deploy** button, and deploy it in the region geographically closest to you.
+
+    <img src="assets/udf-01.png" alt="UDF Deploy" width="600"/>
+
+    <img src="assets/udf-02.png" alt="UDF Deploy 2" width="600"/>
+
+1. Start the UDF deployment with the default suggested resource settings.
+
+    <img src="assets/udf-03.png" alt="UDF Resources" width="600"/>
+
+    <img src="assets/udf-04.png" alt="UDF Resources 2" width="600"/>
 
 ## Log into the **devbox** VM in the UDF Deployment
 
 1. If the **devbox** component is not running, start it now.
 
-1. Select the **xRDP** access method in this component.
+1. Select the **XRDP** access method in this component.
+
+    <img src="assets/udf-05.png" alt="UDF Component" width="600"/>
+
+    <img src="assets/udf-06.png" alt="UDF XRDP Access Method" width="600"/>
 
 1. Once the RDP file downloads, open it with your Remote Desktop client of choice, usually by double-clicking on the downloaded file.
 
 1. When prompted to login, use the credentials that are shown in the **Documentation** tab of the **devbox** UDF component.
+
+## Log into F5 Distributed Cloud Console
+
+1. Once you started the UDF deployment, a workflow was triggered to create a user account for you in the `f5-sales-demo` tenant. You should have received an email requesting you to set your password for this account. Follow those instructions in the email.
+
+    > **Note:** If you already have an account in the `f5-sales-demo` XC tenant, you can simply log in with your existing credentials.
+
+1. Once you are logged into the tenant, navigate to **Multi-Cloud App Connect*.
+
+1. In the URL, you will find the namespace that has been randomly generated for you:
+
+    <img src="assets/xc-namespace.png" alt="XC Namespace" width="800"/>
+
+    > **Note:** If you already have an account in the `f5-sales-demo` XC tenant, you may have a personal application namespace. If not, create one now, and note its name.
+
+1. Make a note of the above namespace, as you will need it in an upcoming step.
 
 ## Trigger build of lab environment
 
@@ -56,6 +86,7 @@ TODO: Need final link for BP
 1. Run the following script to initiate the infrastructure build for this lab:
 
     ```bash
+    export TF_VAR_namespace=<your xc namespace here>
     ./gitops-lab/setup-lab-environment.sh 
     ```
 

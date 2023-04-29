@@ -9,6 +9,7 @@ When the complexity of a orchestrating a deployment and traffic management is re
 1. In any terminal of the **devbox** VM, run the following script to initiate teardown of the infrastructure built for this lab:
 
     ```bash
+    export TF_VAR_namespace=<your xc namespace here>
     ./gitops-lab/teardown-lab-environment.sh 
     ```
 
