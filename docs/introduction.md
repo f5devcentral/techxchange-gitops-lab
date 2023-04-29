@@ -147,6 +147,9 @@ Later in this lab, you will require GitHub authentication to push commits back t
 
 1. Press **Enter** to open the browser.
 
+    > **Note:** You can also authorize the UDF VS Code instance by opening the following URL in your laptop's browser:
+        ```https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Flogin%2Fdevice```
+
 1. Enter your GitHub username, then password.
 
 1. Enter the authorization code when prompted
