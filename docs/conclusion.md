@@ -13,8 +13,6 @@ When the complexity of a orchestrating a deployment and traffic management is re
     ./gitops-lab/teardown-lab-environment.sh 
     ```
 
-1. Confirm destroy if prompted. You may be prompted multiple times.
-
     > **Note:** Ensure that the script has completed successfully before disconnecting from the VM.
 
 1. Shut down and delete the UDF deployment.

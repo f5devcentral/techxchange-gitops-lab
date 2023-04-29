@@ -76,27 +76,18 @@ Upon successful completion of this lab, the following components will have been 
 
 ## Trigger build of lab environment
 
-1. Open a terminal and run the following command to switch to the infrastructure branch we will use for this lab:
-
-    ```bash
-    cd ~/terraform-modular-demo-framework
-    git checkout gitops-lab-merge
-    ```
-
-1. Run the following script to initiate the infrastructure build for this lab:
+1. Open a terminal and run the following script to initiate the infrastructure build for this lab:
 
     ```bash
     export TF_VAR_namespace=<your xc namespace here>
     ./gitops-lab/setup-lab-environment.sh 
     ```
 
-    > **Note:** When prompted to apply, type `y` then enter.
-
 ### PendingVerification Error
 
 If you receive a *PendingVerification* error from AWS in your Terraform output, then proceed with the following steps:
 
-1. Destroy the `aws-appstack-site` 
+1. Destroy the **aws-appstack-site**:
 
     ```bash
     cd aws-appstack-site-1
@@ -111,7 +102,6 @@ If you receive a *PendingVerification* error from AWS in your Terraform output, 
     cd ~/terraform-modular-demo-framework
     ./gitops-lab/setup-lab-environment.sh
     ```
-
 
 ## Fork the lab repository
 
@@ -143,15 +133,17 @@ Later in this lab, you will require GitHub authentication to push commits back t
 
 1. Type "Y" and enter when prompted to "Authenticate Git with your GitHub credentials?"
 
-    Note: an authorization code will be shown. Copy this for use later.
+    > **Note:** An authorization code will be shown. Copy this for use later.
 
 1. Press **Enter** to open the browser.
 
 1. Enter your GitHub username, then password.
 
-1. Enter the authorization code when prompted
+    > **Note:** If you have Multifactor authentication set up on your GitHub account, you may be prompted to respond to a Multifactor challenge. Do this now.
 
-1. Click the **Authorize github** button on the next screen
+1. Enter the authorization code (described 3 steps earlier) when prompted.
+
+1. Click the **Authorize github** button on the next screen.
 
 ## Clone your workshop repository
 
@@ -183,7 +175,7 @@ We will now clone your forked copy of the workshop repository to your lab workst
 
 ## Set up your lab environment
 
-1. Click the **Terminal -> New Terminal** menu item to open a bash shell session if one is not already open at the bottom of the window.
+1. In Visual Studio Code, click the **Terminal -> New Terminal** menu item to open a bash shell session if one is not already open at the bottom of the window.
 
 1. Run the following command in the terminal window to generate personalized Kubernetes manifests you will be using in this lab:
 
