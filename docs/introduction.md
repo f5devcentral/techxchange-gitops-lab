@@ -104,7 +104,7 @@ Upon successful completion of this lab, the following components will have been 
 
     <img src="assets/gh-fork-2.png" alt="GitHub Fork" width="800"/>
 
-1. In Visual Studio Code in the **devbox** VM, click **File -> New Window**
+1. In the **devbox** VM, Open Visual Studio Code, then click **File -> New Window**
 
 1. Click the **Terminal -> New Terminal** menu item to open a bash shell session if one is not already open at the bottom of the window.
 
