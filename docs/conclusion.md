@@ -6,10 +6,11 @@ When the complexity of a orchestrating a deployment and traffic management is re
 
 ## Lab Teardown
 
-1. In any terminal of the **devbox** VM, run the following script to initiate teardown of the infrastructure built for this lab:
+1. In the lab **devbox** VM, open a terminal and run the following script to initiate teardown of the infrastructure built for this lab:
 
     ```bash
     export TF_VAR_namespace=<your xc namespace here>
+    cd ~/terraform-modular-demo-framework
     ./gitops-lab/teardown-lab-environment.sh 
     ```
 

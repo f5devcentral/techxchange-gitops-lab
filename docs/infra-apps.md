@@ -2,7 +2,7 @@
 
 When a cluster is provisioned, there is usually a desire to install services that can be used cluster-wide by one or more user applications. These "infrastructure apps" can vary from security services, traffic shapers/routers, deployment operators, security vaults, dashboards, telemetry providers, etc.
 
-Typically a platform operations engineer will ensure these services are available in a cluster based on the needs of *their* customers, the application owners, or developers. With the power of F5 Distributed Cloud's Managed Kubernetes offering, platform engineers can automate the deployment of a fleet of clusters worldwide, all interconnected with our best-in-class network.
+Typically a platform operations engineer will ensure these services are available in a cluster based on the needs of *their* customers: the application owners or developers. With the power of F5 Distributed Cloud's Managed Kubernetes offering, platform engineers can automate the deployment of a fleet of clusters worldwide, all interconnected with our best-in-class network.
 
 We will introduce and deploy a few of these "infrastructure apps".
 
@@ -24,7 +24,7 @@ We will leverage ArgoCD to install NGINX Ingress Controller for us, leveraging H
 
 Use `kubectl` to create an ArgoCD Application resource. ArgoCD uses Application resources to deploy applications whose configuration is present in a git repository.
 
-1. Examine the contents of the ArgoCD Application resource by opening the `manifests/grafana-subchart.yaml` file in Visual Studio Code. Note the `spec.source.repoUrl` is already set to your repository's helm chart folder for Grafana. This is where ArgoCD will fetch the resources for the initial deployment, as well as monitor for changes.
+1. In Visual Studio Code, examine the contents of the ArgoCD Application resource by opening the `manifests/grafana-subchart.yaml` file in Visual Studio Code. Note the `spec.source.repoUrl` is already set to your repository's helm chart folder for Grafana. This is where ArgoCD will fetch the resources for the initial deployment, as well as monitor for changes.
 
 1. Run the following command in the Visual Studio Code terminal:
 
@@ -32,7 +32,7 @@ Use `kubectl` to create an ArgoCD Application resource. ArgoCD uses Application 
     kubectl apply -f manifests/grafana-subchart.yaml
     ```
 
-1. Verify the installation was successful by logging into ArgoCD. Ensure that an application called `grafana` has been installed, and is in sync and healthy.
+1. Verify the installation was successful by opening the ArgoCD tab in your browser. Ensure that an application called `grafana` has been installed, and is in sync and healthy.
 
 ## Grafana Login
 
@@ -46,7 +46,7 @@ Use `kubectl` to create an ArgoCD Application resource. ArgoCD uses Application 
     kubectl get secret --namespace $XC_NAMESPACE grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
     ```
 
-1. For now, you are just confirming that you can log in to Grafana; we will use it later in this lab so keep this tab open.
+1. For now, you are just confirming that you can log in to Grafana. We will use Grafana later in this lab, so keep this tab open.
 
 ## Prometheus Installation
 
@@ -58,7 +58,7 @@ Use `kubectl` to create an ArgoCD Application resource. ArgoCD uses Application 
     kubectl apply -f manifests/prometheus-subchart.yaml
     ```
 
-1. Verify the installation was successful by logging into ArgoCD. Ensure that an application called `prometheus` has been installed, and is in sync and healthy.
+1. Verify the installation was successful by opening the ArgoCD tab in your browser. Ensure that an application called `prometheus` has been installed, and is in sync and healthy.
 
 Although Prometheus has a user interface to query data, we will not be using it in this lab. Grafana will be querying Prometheus for the metrics data it fetched from NGINX Ingress Controller.
 
@@ -74,7 +74,7 @@ Though the XC Ingress Controller has some application routing features, we will 
     kubectl apply -f manifests/volterra-ingress-controller-subchart.yaml
     ```
 
-1. Verify the installation was successful by logging into ArgoCD. Ensure that an application called `volterra-ingress-controller` has been installed, and is in sync and healthy.
+1. Verify the installation was successful by opening the ArgoCD tab in your browser. Ensure that an application called `volterra-ingress-controller` has been installed, and is in sync and healthy.
 
 1. Click on the created `volterra-ingress-controller` application card in ArgoCD.
 

@@ -28,6 +28,18 @@ Upon successful completion of this lab, the following components will have been 
 
 **You will need a GitHub Account for this lab. If you do not have one, go set one up at [GitHub](https://github.com/), then resume this lab. Make note of your username, as you will need it later in this lab.**
 
+## Fork the lab repository
+
+1. On your desktop (not the lab VM), you will need to fork the lab repository to your GitHub account. If this is your first time, then take a few minutes to review the [GitHub Docs on how to Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+
+    You can complete this task through the [repository GitHub UI](https://github.com/f5devcentral/techxchange-gitops-lab):
+
+    <img src="assets/gh-fork-1.png" alt="GitHub Fork" width="700"/>
+
+    > **Note:** If you are a member of any GitHub organizations, be sure to select **yourself** as the owner, and not an organization (such as `f5devcentral` or `nginxinc`):
+
+    <img src="assets/gh-fork-2.png" alt="GitHub Fork" width="800"/>
+
 ## Deploy the TechXchange GitOps UDF Blueprint
 
 1. In your browser, navigate to the [Terraform Modular Demo Framework](https://udf.f5.com/b/99ed0091-30c5-4a2d-b8e0-e29574980c46#documentation) blueprint.
@@ -60,9 +72,23 @@ Upon successful completion of this lab, the following components will have been 
 
 ## Log into F5 Distributed Cloud Console
 
-1. Once you started the UDF deployment, a workflow was triggered to create a user account for you in the `f5-sales-demo` tenant. You should have received an email requesting you to set your password for this account. Follow those instructions in the email.
+1. Once you started the UDF deployment, a workflow was triggered to create a user account for you in the `f5-sales-demo` tenant. You should have received an email requesting you to set your password for this account. Follow those instructions in the email to set a password for your account.
 
     > **Note:** If you already have an account in the `f5-sales-demo` XC tenant, you can simply log in with your existing credentials.
+
+1. If you are prompted for an XD domain, enter `f5-sales-demo` and click **Next**.
+
+    <img src="assets/xc-domain.png" alt="XC Domain" width="500"/>
+
+1. Login using your email and the password you just set:
+
+    <img src="assets/xc-login.png" alt="XC Login" width="500"/>
+
+1. If prompted, review and accept the **Terms of Service** and **Privacy Policy**.
+
+1. When asked to identify yourself, select `DevOps`, and click **Next**.
+
+1. Click `Advanced` and click **Get Started**.
 
 1. Once you are logged into the tenant, navigate to **Multi-Cloud App Connect**.
 
@@ -76,48 +102,25 @@ Upon successful completion of this lab, the following components will have been 
 
 ## Trigger build of lab environment
 
-1. Open a terminal and run the following script to initiate the infrastructure build for this lab:
+1. In the lab **devbox** VM you are RDP connected to, open a terminal and run the following script to initiate the infrastructure build for this lab:
 
     ```bash
     export TF_VAR_namespace=<your xc namespace here>
+    cd ~/terraform-modular-demo-framework
     ./gitops-lab/setup-lab-environment.sh 
     ```
 
-### PendingVerification Error
+    > **Note:** This should take around 20-30 minutes to complete.
 
-If you receive a *PendingVerification* error from AWS in your Terraform output, then proceed with the following steps:
+    > **Note:** If you see *PendingVerification Error*, go to [Pending Verification Recovery](pend-ver.md) otherwise, proceed.
 
-1. Destroy the **aws-appstack-site**:
+## Configure Git in Visual Studio Code
 
-    ```bash
-    cd aws-appstack-site-1
-    terragrunt destroy
-    ```
+1. In the **devbox** VM, Open Visual Studio Code: **Applications -> Development -> Visual Studio Code**
 
-1. Ensure your site has been removed by checking the *Multi-Cloud App Connect -> App Site List* to ensure there are no sites with your XC username.
+1. Click **File -> New Window**
 
-1. Run the deployment again
-
-    ```.bash
-    cd ~/terraform-modular-demo-framework
-    ./gitops-lab/setup-lab-environment.sh
-    ```
-
-## Fork the lab repository
-
-1. On your desktop (not the lab VM), you will need to fork the lab repository to your GitHub account. If this is your first time, then take a few minutes to review the [GitHub Docs on how to Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
-
-    You can complete this task through the [repository GitHub UI](https://github.com/f5devcentral/techxchange-gitops-lab):
-
-    <img src="assets/gh-fork-1.png" alt="GitHub Fork" width="700"/>
-
-    > **Note:** If you are a member of any GitHub organizations, be sure to select **yourself** as the owner, and not an organization (such as `f5devcentral` or `nginxinc`):
-
-    <img src="assets/gh-fork-2.png" alt="GitHub Fork" width="800"/>
-
-1. In the **devbox** VM, Open Visual Studio Code, then click **File -> New Window**
-
-    > **Note:** If you are prompted with a *Authentication required* prompt to *Unlock Login Keyring*, then enter the same credentials used to RDP into the jumphost.
+    > **Note:** If you see an *Authentication required* prompt to *Unlock Login Keyring*, then enter the same credentials used to RDP into the jumphost.
 
 1. Click the **Terminal -> New Terminal** menu item to open a bash shell session if one is not already open at the bottom of the window.
 
@@ -131,9 +134,7 @@ Later in this lab, you will require GitHub authentication to push commits back t
     gh auth login -h github.com -p https -w
     ```
 
-1. Type "Y" and enter when prompted to "Authenticate Git with your GitHub credentials?"
-
-    > **Note:** An authorization code will be shown. Copy this for use later.
+1. An authorization code will be shown. Copy this for use later.
 
 1. Press **Enter** to open the browser.
 
@@ -171,11 +172,11 @@ We will now clone your forked copy of the workshop repository to your lab workst
     git clone https://github.com/$GITHUB_USER/techxchange-gitops-lab.git
     ```
 
-1. Click **File -> Open Folder** and select the `techxchange-gitops-lab` folder that was just created from the command above.
+1. Click **File -> Open Folder** and select the `ubuntu` -> `techxchange-gitops-lab` folder that was just created from the command above, and click **Open**.
 
 ## Set up your lab environment
 
-1. In Visual Studio Code, click the **Terminal -> New Terminal** menu item to open a bash shell session if one is not already open at the bottom of the window.
+1. In Visual Studio Code, click the **Terminal -> New Terminal** menu item.
 
 1. Run the following command in the terminal window to generate personalized Kubernetes manifests you will be using in this lab:
 
@@ -198,7 +199,7 @@ We will now clone your forked copy of the workshop repository to your lab workst
 
     - If prompted "This action will push and pull...", click the **Ok** button.
 
-    - If prompted by "The extension 'GitHub' wants to sign in using GitHub", click the **Open xdg-button** button and follow the prompts
+    - If prompted by "The extension 'GitHub' wants to sign in using GitHub", click the **Allow** button, then **Open xdg-button** button that pops up in the browser.
 
     - If prompted with "Allow an extension to open this URI?", click the **Open** button.
 
