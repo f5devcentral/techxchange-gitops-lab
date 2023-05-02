@@ -40,6 +40,8 @@ Use `kubectl` to create an ArgoCD Application resource. ArgoCD uses Application 
 
     > **Note:** You set your namespace to an environment variable in the last section. You can retrieve it by running the following: `echo $XC_NAMESPACE`
 
+    > ***Note:*** It may take some time for ArgoCD to fully deploy and initialize before it is available via web browser.
+
 1. When presented for login credentials, enter `admin` as the username. To acquire the password, you must interrogate k8s for the secret containing the password from Visual Studio Code terminal:
 
     ```bash

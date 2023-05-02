@@ -114,6 +114,20 @@ Upon successful completion of this lab, the following components will have been 
 
     > **Note:** If you see *PendingVerification Error*, go to [Pending Verification Recovery](pend-ver.md) otherwise, proceed.
 
+1. You should see an output similar to this when the script has completed successfully:
+
+    <img src="assets/setup-complete.png" alt="Setup Complete" width="500"/>
+
+<br/>
+<br/>
+
+<img src="assets/stop.png" alt="Stop" width="100"/>
+
+***You must wait for the above script to complete before proceeding with the lab***
+
+<br/>
+<br/>
+
 ## Configure Git in Visual Studio Code
 
 1. In the **devbox** VM, Open Visual Studio Code: **Applications -> Development -> Visual Studio Code**

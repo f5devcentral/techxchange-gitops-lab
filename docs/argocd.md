@@ -19,6 +19,8 @@ This is a fundamental tenet of GitOps: Source control is the source of truth for
 
 1. In your browser, open a new tab and navigate to `https://argocd-<your namespace>.labs.f5demos.com`
 
+> ***Note:*** It may take some time for ArgoCD to fully deploy and initialize before it is available via web browser.
+
 1. Obtain the ArgoCD password by running the following from a terminal in the **devbox** vm:
 
     ```bash
