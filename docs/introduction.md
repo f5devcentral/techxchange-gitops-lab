@@ -86,7 +86,7 @@ Upon successful completion of this lab, the following components will have been 
 
 1. If prompted, review and accept the **Terms of Service** and **Privacy Policy**.
 
-1. When asked to identify yourself, select `DevOps`, and click **Next**.
+1. When asked to identify yourself, select all the checkboxes, and click **Next**.
 
 1. Click `Advanced` and click **Get Started**.
 
