@@ -2,7 +2,7 @@
 
 The objective of this lab is to demonstrate the deployment of an application into a Managed Kubernetes instance running on an AppStack Customer Edge (CE). We will deploy the F5 Distributed Cloud (XC) Ingress Controller to route traffic from the internet to an application, and NGINX Ingress Controller to provide granular routing capabilities to this application.
 
-As an ideal, application code should be versioned and maintained in s secure Source Control Management (SCM) repository, such as Git. However, what about the configuration, management and governance of infrastructure?
+As an ideal, application code should be versioned and maintained in a secure Source Control Management (SCM) repository, such as Git. However, what about the configuration, management and governance of infrastructure?
 
 ## GitOps
 
