@@ -12,7 +12,7 @@ We will be practicing GitOps for Continuous Deployment of our applications. Argo
 
 ## Lab Architecture
 
-Upon first starting the lab, an XC AppStack Managed K8s cluster has been deployed for you in an AWS VPC. An namespace for you to deploy application into has been created, and the ArgoCD application has been installed for you.
+Upon first starting the lab, an XC AppStack Managed K8s cluster has been deployed for you in an AWS VPC. An namespace for you to deploy applications into has been created, and the ArgoCD application has been installed for you.
 
 Upon successful completion of this lab, the following components will have been deployed by you with the help of ArgoCD:
 
