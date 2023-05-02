@@ -24,11 +24,11 @@ Each student needs:
 
 - [jq](https://stedolan.github.io/jq/)
 - [yq](https://github.com/mikefarah/yq)
-<!-- - [hey](https://github.com/rakyll/hey) -->
 - [gh (github cli)](https://cli.github.com/)
 - [kubectl (v1.25.9)](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
 - [curl](https://curl.se/docs/manpage.html)
 - [gomplate](https://docs.gomplate.ca/)
+<!-- - [hey](https://github.com/rakyll/hey) -->
 
 ## UDF Blueprint
 

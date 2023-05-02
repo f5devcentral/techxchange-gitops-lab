@@ -6,18 +6,18 @@ ArgoCD is the tool we will be using to watch your lab repository for changes, an
 
 In addition to deploying applications for the first time, ArgoCD can be used to ensure the state of your application remains consistent with an application's configuration stored in Git. ArgoCD continuously monitors the state of application configuration in Git, and compares it to the state of the deployed application in Kubernetes. ArgoCD will update an application's state if it detects configuration drift.
 
-This is a fundamental tenet in GitOps: Source control is the source of truth for an application (or infrastructure), and configuration changes to a deployed application outside of this process will not be tolerated, and will be corrected by ArgoCD.
+This is a fundamental tenet of GitOps: Source control is the source of truth for an application (or infrastructure), and configuration changes to a deployed application outside of this process will not be tolerated, and will be corrected by ArgoCD.
 
 ## Login to ArgoCD
 
-1. Run this command to find your assigned namespace for this lab:
+1. Run this command in your Visual Studio Code terminal to find your assigned namespace for this lab:
 
     ```bash
     export XC_NAMESPACE=`cat ~/terraform-modular-demo-framework/tf_output_vars.yaml | yq '.namespace'`
     echo $XC_NAMESPACE
     ```
 
-1. In your browser, navigate to `https://argocd-<your namespace>.labs.f5demos.com`
+1. In your browser, open a new tab and navigate to `https://argocd-<your namespace>.labs.f5demos.com`
 
 1. Obtain the ArgoCD password by running the following from a terminal in the **devbox** vm:
 

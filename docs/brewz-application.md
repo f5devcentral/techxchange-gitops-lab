@@ -14,7 +14,7 @@ Since the application developers are *also* committed to GitOps, we'll deploy th
 
 Though ArgoCD deployed the infrastructure applications with Helm, the developers have chosen to deploy this application using simple Kubernetes manifests.
 
-> **Note:** Though we are using a single repository in this lab, it is a good practice to use different repositories for infrastructure apps, and user applications (such as Brewz). This way, appropriate access to each repo is granted based on area of responsibility.
+> **Note:** Though we are using a single repository in this lab, it is a good practice to use different repositories for infrastructure apps and user applications (such as Brewz). This way, appropriate access to each repo is granted based on area of responsibility.
 
 Let's deploy the Brewz application.
 
@@ -26,17 +26,17 @@ Let's deploy the Brewz application.
 
 ## Verify the Deployment
 
-1. Verify the installation was successful by logging into ArgoCD. Ensure that an application called `brewz` has been installed, and is in sync and healthy.
+1. Verify the installation was successful by opening the ArgoCD tab in your browser. Ensure that an application called `brewz` has been installed, and is in sync and healthy.
 
 1. In your browser, open a new tab and enter `https://brewz-<your namespace>.labs.f5demos.com` to see the Brewz application is live.
 
-1. In your browser, open a new tab and navigate to the XC console and log in if prompted.
+1. In your browser, open a new tab and navigate to the XC console at `https://f5-sales-demo.console.ves.volterra.io/` and log in if prompted.
 
 1. Navigate to **Multi-Cloud App Connect**. Ensure your namespace is selected in the top of the left menu.
 
 1. Click *Manage -> Load Balancers -> HTTP Load Balancers*
 
-1. Review the Load Balancers that have been created for the infrastructure applications that were installed earlier, as well as for the Brewz application that was just installed.
+1. Note the Load Balancers that have been created for the infrastructure applications that were installed earlier for you (`argocd` and `grafana`), as well as for the Brewz application that was just installed.
 
 ## Examining the Brewz Application
 
@@ -60,9 +60,9 @@ Now that the application has been deployed, examine the applications's deploymen
 
     How does traffic get to our application?
 
-1. Open the `virtual-server.yaml` file. This file contains a `VirtualServer` custom resource that NGINX Ingress Controller will consume to secure, route and shape our traffic destined for the Brewz application. Thanks to the `VirtualServer`'s `host` field, NGINX Ingress Controller will accept and route traffic associated with this host name from the XC Load Balancer to the appropriate services. We will examine the `VirtualService` and `VirtualServerRoute` resources in detail next in this lab.
+1. Open the `virtual-server.yaml` file. This file contains a `VirtualServer` custom resource that NGINX Ingress Controller will consume to secure, route and shape our traffic destined for the Brewz application. Thanks to the `VirtualServer`'s `host` field, NGINX Ingress Controller will accept and route traffic associated with this host name from the XC Load Balancer to the appropriate services. We will examine the `VirtualServer` and `VirtualServerRoute` resources in detail next in this lab.
 
-1. The remaining manifests are Policy resources to provide rate limiting and JWT authorization services to Brewz microservices.
+1. The remaining manifests are `Policy` resources to provide rate limiting and JWT authorization services to Brewz microservices.
 
 ## Examine NGINX Dashboard in Grafana
 
