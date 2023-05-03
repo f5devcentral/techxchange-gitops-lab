@@ -49,7 +49,7 @@ Now that the application has been deployed, examine the applications's deploymen
 1. The `mongo-init.yaml` file contains a `ConfigMap` resource containing the JSON data used to seed the MongoDB database.
 
 1. The `xc-ingress.yaml` file contains an `Ingress` resource with custom annotations. The XC Ingress Controller monitors the cluster for these resources. When this type of resource is deployed, the XC Ingress controller will use the `Ingress` resource details and annotations to:
-    - Create an XC Origin pool that points to the NGINX Ingress Controller's service on port 443 in the specified AppStack site
+    - Create an XC Origin pool that points to the NGINX Ingress Controller's service on port 443 in the specified App Stack site
     - Create an XC HTTP Load Balancer for the host name `https://brewz-<your namespace>.labs.f5demos.com`, responding on an existing Public IP available in this tenant
     - Creates a single XC Load Balancer Route for the path `/` set to the Origin Pool created above
     - Sets the Load Balancer to preserve the host name when routing traffic to the NGINX Ingress Controller Service

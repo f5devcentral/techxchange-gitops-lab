@@ -12,7 +12,7 @@ Each student needs:
 
 ## Environment Preconditions
 
-- AppStack is installed in a CSP as Managed Kubernetes node
+- App Stack is installed in AWS as a Managed Kubernetes node
 - ArgoCD is installed via automation
 - ArgoCD Load Balancer and Origin Pool is created via automation
 - Grafana Load Balancer and Origin Pool is created via automation

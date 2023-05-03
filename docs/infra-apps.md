@@ -6,7 +6,7 @@ Typically a platform operations engineer will ensure these services are availabl
 
 We will introduce and deploy a few of these "infrastructure apps".
 
-> **Note:** For learning purposes, in this lab we are manually creating the configurations that instruct ArgoCD to deploy applications one at a time. In a real-world scenario, we should automate both the creation of the AppStack Managed Kubernetes cluster, the installation of ArgoCD, complete with all application configurations to be installed once the cluster is available without requiring any additional intervention.
+> **Note:** For learning purposes, in this lab we are manually creating the configurations that instruct ArgoCD to deploy applications one at a time. In a real-world scenario, we should automate both the creation of the App Stack Managed Kubernetes cluster, the installation of ArgoCD, complete with all application configurations to be installed once the cluster is available without requiring any additional intervention.
 
 ## Metrics and Visibility
 

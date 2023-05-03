@@ -1,6 +1,6 @@
 # Lab Introduction
 
-The objective of this lab is to demonstrate the deployment of an application into a Managed Kubernetes instance running on an AppStack Customer Edge (CE). We will deploy the F5 Distributed Cloud (XC) Ingress Controller to route traffic from the internet to an application, and NGINX Ingress Controller to provide granular routing capabilities to this application.
+The objective of this lab is to demonstrate the deployment of an application into a Managed Kubernetes instance running on an App Stack Customer Edge (CE). We will deploy the F5 Distributed Cloud (XC) Ingress Controller to route traffic from the internet to an application, and NGINX Ingress Controller to provide granular routing capabilities to this application.
 
 As an ideal, application code should be versioned and maintained in a secure Source Control Management (SCM) repository, such as Git. However, what about the configuration, management and governance of infrastructure?
 
@@ -12,7 +12,7 @@ We will be practicing GitOps for Continuous Deployment of our applications. Argo
 
 ## Lab Architecture
 
-Upon first starting the lab, an XC AppStack Managed K8s cluster has been deployed for you in an AWS VPC. An namespace for you to deploy applications into has been created, and the ArgoCD application has been installed for you.
+Upon first starting the lab, an XC App Stack Managed K8s cluster has been deployed for you in an AWS VPC. An namespace for you to deploy applications into has been created, and the ArgoCD application has been installed for you.
 
 Upon successful completion of this lab, the following components will have been deployed by you with the help of ArgoCD:
 
@@ -30,7 +30,7 @@ Upon successful completion of this lab, the following components will have been 
 
 ## Fork the lab repository
 
-1. On your desktop (not the lab VM), you will need to fork the lab repository to your GitHub account. If this is your first time, then take a few minutes to review the [GitHub Docs on how to Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+1. On your desktop (not the lab VM), you will need to fork the lab repository to your GitHub account. If this is your first time, you may want to review the [GitHub Docs on how to Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) after completing this lab.
 
     You can complete this task through the [repository GitHub UI](https://github.com/f5devcentral/techxchange-gitops-lab):
 
@@ -118,7 +118,7 @@ Upon successful completion of this lab, the following components will have been 
     1. It sets up the credentials for the UDF environment you are in to authenticate with AWS and XC
     1. Deploys VPCs, Subnets, NAT Gateways, etc to AWS
     1. Deploys the mk8s cluster object in XC
-    1. Deploys a 1x node AppStack instance in the AWS region/VPC you deployed in
+    1. Deploys a 1x node App Stack instance in the AWS region/VPC you deployed in
     1. Creates your k8s namespace, and deploys ArgoCD and the initial XC Load Balancers you will need for the lab
 
 <br/>
@@ -234,9 +234,9 @@ We will now clone your forked copy of the workshop repository to your lab workst
     google-chrome https://github.com/$GITHUB_USER/techxchange-gitops-lab.git
     ```
 
-## Test AppStack Managed Kubernetes with Kubeconfig
+## Test App Stack Managed Kubernetes with Kubeconfig
 
-To test interactions with the AppStack Kubernetes cluster, you will use the `kubeconfig`. A kubeconfig configuration file has already been provided for you on the **devbox** vm.
+To test interactions with the App Stack Kubernetes cluster, you will use the `kubeconfig`. A kubeconfig configuration file has already been provided for you on the **devbox** vm.
 
 1. In the Visual Studio Code terminal window, use `kubectl` to test your new configuration:
 
@@ -251,6 +251,6 @@ To test interactions with the AppStack Kubernetes cluster, you will use the `kub
     ip-100-64-1-95.us-east-2.compute.internal    Ready    ves-master   12m   v1.23.14-ves
     ```
 
-    Your AppStack Managed Kubernetes cluster is now ready to accept configuration.
+    Your App Stack Managed Kubernetes cluster is now ready to accept configuration.
 
 [Continue to next section...](argocd.md)
