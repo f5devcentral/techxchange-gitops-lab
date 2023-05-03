@@ -76,7 +76,7 @@ Upon successful completion of this lab, the following components will have been 
 
     > **Note:** If you already have an account in the `f5-sales-demo` XC tenant, you can simply log in with your existing credentials.
 
-1. If you are prompted for an XD domain, enter `f5-sales-demo` and click **Next**.
+1. If you are prompted for an XC domain, enter `f5-sales-demo` and click **Next**.
 
     <img src="assets/xc-domain.png" alt="XC Domain" width="500"/>
 
