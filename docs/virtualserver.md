@@ -12,6 +12,12 @@ Let's take a look at common resources for a modern application.
 
 You can reference your `virtual-server.yaml` as you read through this part of the lesson, or simply refer to the appropriate yaml snippets provided below.
 
+  > ***Note:*** To see your files in Visual Studio code, ensure the **File Explorer** button is selected:
+
+  <img src="assets/vscode-file-explorer-icon.png" alt="Visual Studio Code File Explorer" width="200"/>
+
+<br/>
+
 ## Action
 
 The action resource defines an action to perform for a request and is the basis for our Brewz demo application.

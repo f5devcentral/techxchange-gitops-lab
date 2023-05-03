@@ -110,9 +110,18 @@ Upon successful completion of this lab, the following components will have been 
     ./gitops-lab/setup-lab-environment.sh 
     ```
 
-    > **Note:** This should take around 20-30 minutes to complete.
+    > **Note:** This should take between 20-30 minutes to complete.
 
     > **Note:** If you see *PendingVerification Error*, go to [Pending Verification Recovery](pend-ver.md) otherwise, proceed.
+
+    The script you just triggered does a few things:
+    1. It sets up the credentials for the UDF environment you are in to authenticate with AWS and XC
+    1. Deploys VPCs, Subnets, NAT Gateways, etc to AWS
+    1. Deploys the mk8s cluster object in XC
+    1. Deploys a 1x node AppStack instance in the AWS region/VPC you deployed in
+    1. Creates your k8s namespace, and deploys ArgoCD and the initial XC Load Balancers you will need for the lab
+
+<br/>
 
 1. You should see an output similar to this when the script has completed successfully:
 

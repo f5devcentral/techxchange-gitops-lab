@@ -91,4 +91,6 @@ We need to deploy the new variant of the SPA application, so we can conditionall
 
 1. Refresh the browser tab. You should see a different design for the Brewz application, notably that the background and font colors are different.
 
+  > ***Note:*** If you don't see the change, you may need to hard-refresh the page in Chrome to invalidate the cached resources.
+
 [Continue to the lab conclusion...](conclusion.md)
