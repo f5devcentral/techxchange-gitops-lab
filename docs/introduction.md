@@ -110,7 +110,7 @@ Upon successful completion of this lab, the following components will have been 
     ./gitops-lab/setup-lab-environment.sh 
     ```
 
-    > **Note:** This should take between 20-30 minutes to complete.
+    > **Note:** This should take between 25-30 minutes to complete.
 
     > **Note:** If you see *PendingVerification Error*, go to [Pending Verification Recovery](pend-ver.md) otherwise, proceed.
 
