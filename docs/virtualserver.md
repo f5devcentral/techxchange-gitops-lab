@@ -10,7 +10,7 @@ More detailed information can be found in the [VirtualServer and VirtualServerRo
 
 Let's take a look at common resources for a modern application.
 
-You can reference your `virtual-server.yaml` as you read through this part of the lesson, or simply refer to the appropriate yaml snippets provided below.
+You can reference your `manifests/brewz/virtual-server.yaml` as you read through this part of the lesson, or simply refer to the appropriate yaml snippets provided below.
 
   > ***Note:*** To see your files in Visual Studio code, ensure the **File Explorer** button is selected:
 
@@ -26,7 +26,7 @@ The action resource defines an action to perform for a request and is the basis 
 
 The *pass* action passes the request to an upstream that is defined in the resource.
 
-In the Brewz `virtual-server.yaml` manifest, the *spa* and *api* services leverage this method.
+In the Brewz `manifests/brewz/virtual-server.yaml` manifest, the *spa* and *api* services leverage this method.
 
 ```yaml
 ...
@@ -60,7 +60,7 @@ The *return* action returns a preconfigured response.
 
 The *proxy* action passes a request to an upstream with the ability to modify the request/response.
 
-In the Brewz `virtual-server.yaml` manifest, the */images* path uses this method to proxy requests to the api service's */images* path.
+In the Brewz `manifests/brewz/virtual-server.yaml` manifest, the */images* path uses this method to proxy requests to the api service's */images* path.
 
 ```yaml
 ...
@@ -76,7 +76,7 @@ In the Brewz `virtual-server.yaml` manifest, the */images* path uses this method
 
 The upstream defines a destination for the routing configuration. The upstream's name must be a valid DNS label as defined in RFC 1035.
 
-In the Brewz `virtual-server.yaml` manifest, we define a very simple upstream configuration for the *spa* and *api* services:
+In the Brewz `manifests/brewz/virtual-server.yaml` manifest, we define a very simple upstream configuration for the *spa* and *api* services:
 
 ```yaml
 ...
@@ -111,7 +111,7 @@ For a full list of Upstream attributes, please refer to the [docs](https://docs.
 
 One of the advantages the NGINX Plus Ingress Controller provides is the ability to perform health checks on your upstreams. This can be very useful in situations like the Brewz API which is dependent on a MongoDB database to function correctly.  By checking the APIs' custom /stats API, we can determine if the API server is functioning correctly.
 
-1. In your `virtual-server.yaml` file, note the `healthCheck` resource associated to the `api` service upstream:
+1. In your `manifests/brewz/virtual-server.yaml` file, note the `healthCheck` resource associated to the `api` service upstream:
 
     ```yaml
     ...
@@ -132,7 +132,7 @@ One of the advantages the NGINX Plus Ingress Controller provides is the ability 
 
 The Brewz developers have an issue where their APIs are not always returning a JSON response. A good example is when you lookup a product that does not exist. The API returns a 400 HTTP response code but the body payload is *"Could not find the product!"*.
 
-1. Run the following command from a terminal in the **devbox** vm to test this output:
+1. Run the following command in the Visual Studio Code terminal to test this output:
 
     ```bash
     export BREWZ_URL=<your brewz application url without the path>
@@ -141,10 +141,9 @@ The Brewz developers have an issue where their APIs are not always returning a J
 
     Ideally, the development team will fix this issue in the API code but we can also help by performing a quick fix via our VirtualServer configuration.
 
-1. In VSCode, open the `manifests/brewz/virtual-server.yaml` file and add an `errorPages` resource to the `routes` -> `/api` path; example below.
+1. In Visual Studio Code, open the `manifests/brewz/virtual-server.yaml` file and add an `errorPages` resource to the `routes` -> `/api` path; example below.
 
     ```yaml
-    ...
         - path: /api
           policies:
             - name: rate-limit-policy
@@ -160,7 +159,6 @@ The Brewz developers have an issue where their APIs are not always returning a J
                 headers:
                   - name: x-debug-original-status
                     value: ${upstream_status}
-    ...
     ```
 
 1. Commit the `manifests/brewz/virtual-server.yaml` file to your local repository, then push it to your remote repository. ArgoCD will pick up the most recent changes, and deploy them for you.

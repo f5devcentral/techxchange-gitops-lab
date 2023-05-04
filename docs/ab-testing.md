@@ -10,7 +10,7 @@ The development team has already been hard at work updating the Brewz SPA app wi
 
 We need to deploy the new variant of the SPA application, so we can conditionally route traffic to it.
 
-1. In your fork of the lab repository, append the following yaml snippet to the `manifests/brewz/app.yaml` file and save it:
+1. In Visual Studio Code, append the following yaml snippet to the `manifests/brewz/app.yaml` file and save it:
 
     ```yaml
     ---
