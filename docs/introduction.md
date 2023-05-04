@@ -114,12 +114,12 @@ Upon successful completion of this lab, the following components will have been 
 
     > **Note:** If you see *PendingVerification Error*, go to [Pending Verification Recovery](pend-ver.md) otherwise, proceed.
 
-    The script you just triggered does a few things:
-    1. It sets up the credentials for the UDF environment you are in to authenticate with AWS and XC
-    1. Deploys VPCs, Subnets, NAT Gateways, etc to AWS
-    1. Deploys the mk8s cluster object in XC
-    1. Deploys a 1x node App Stack instance in the AWS region/VPC you deployed in
-    1. Creates your k8s namespace, and deploys ArgoCD and the initial XC Load Balancers you will need for the lab
+    The script you just triggered does a number of things:
+    - It sets up the credentials for the UDF environment you are in to authenticate with AWS and XC
+    - Deploys VPCs, Subnets, NAT Gateways, etc to AWS
+    - Deploys the mk8s cluster object in XC
+    - Deploys a 1x node App Stack instance in the AWS region/VPC you deployed in
+    - Creates your k8s namespace, and deploys ArgoCD and the initial XC Load Balancers you will need for the lab
 
 <br/>
 
