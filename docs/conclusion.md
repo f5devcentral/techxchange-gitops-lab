@@ -14,6 +14,14 @@ When the complexity of a orchestrating a deployment and traffic management is re
     ./gitops-lab/teardown-lab-environment.sh 
     ```
 
+    > **Note:** Ensure that the script has completed successfully before moving to the next step.
+
+1. Next, run the following command to destroy the cloud credential resources used for this lab:
+
+    ```bash
+    terragrunt run-all destroy --terragrunt-modules-that-include ./env-setup.hcl --terragrunt-non-interactive
+    ```
+
     > **Note:** Ensure that the script has completed successfully before disconnecting from the VM.
 
 1. Shut down and delete the UDF deployment.
