@@ -9,7 +9,7 @@ metadata:
     ingress.cloud.f5.com/max-fails: "5"
     ingress.cloud.f5.com/connection-timeout: "4000"
     ingress.cloud.f5.com/https-auto-cert: "false"   #TLS termination with auto cert
-    ingress.cloud.f5.com/http-redirect: "false"     #Enable HTTP to HTTPs redirect
+    ingress.cloud.f5.com/http-redirect: "true"     #Enable HTTP to HTTPs redirect
     ingress.cloud.f5.com/public-ip-address: ~{ (datasource "terraform").argocd_lb_ip_address }~ # Tenant Static IP Address
 
     # Load Balancer Route annotations

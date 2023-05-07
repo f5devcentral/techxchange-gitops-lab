@@ -17,9 +17,8 @@ Upon first starting the lab, an XC App Stack Managed K8s cluster has been deploy
 Upon successful completion of this lab, the following components will have been deployed by you with the help of ArgoCD:
 
 - Grafana and Prometheus for metrics collection and analytics dashboards
-- An F5 XC Load Balancer for the Grafana UI
-- XC Ingress Controller for creation of Load Balancers & Origin Pools for service connectivity
-- NGINX Ingress Controller for advanced traffic routing
+- [XC Ingress Controller](https://f5cloud.zendesk.com/hc/en-us/articles/11267474888471-F5-Distributed-Cloud-Ingress-Controller) for creation of Load Balancers & Origin Pools for service connectivity
+- [NGINX Ingress Controller](https://docs.nginx.com/nginx-ingress-controller/) for advanced traffic routing
 - A microservices application called "Brewz", complete with XC Load Balancers & Origin Pools for service connectivity
 
 <img src="assets/lab-architecture.png" alt="Lab architecture" width="900"/>
@@ -92,7 +91,7 @@ Upon successful completion of this lab, the following components will have been 
 
 1. Once you are logged into the tenant, navigate to **Multi-Cloud App Connect**.
 
-1. In the URL, you will find the namespace that has been randomly generated for you:
+1. In the URL and navigation breadcrumb, you will find the namespace that has been randomly generated for you:
 
     <img src="assets/xc-namespace.png" alt="XC Namespace" width="800"/>
 
@@ -140,8 +139,6 @@ Upon successful completion of this lab, the following components will have been 
 ## Configure Git in Visual Studio Code
 
 1. In the **devbox** VM, Open Visual Studio Code: **Applications -> Development -> Visual Studio Code**
-
-1. Click **File -> New Window**
 
     > **Note:** If you see an *Authentication required* prompt to *Unlock Login Keyring*, then enter the same credentials used to RDP into the jumphost.
 
@@ -213,6 +210,10 @@ We will now clone your forked copy of the workshop repository to your lab workst
 1. Using the Source Control pane, stage and commit the entire contents of the `charts` and `manifests` folders that were just created for you.
 
     <img src="assets/initial-commit.png" alt="Visual Studio Source Control commit" width="380"/>
+
+    > **Note:** If Visual Studio Code does not detect the changes, you may need to click the refresh button in the source control panel:
+
+    <img src="assets/vscode-git-refresh.png" alt="Visual Studio Source Control refresh" width="200"/>
 
 1. Push the changes to your origin repository.
 
