@@ -94,8 +94,6 @@ The development team has developed and created a container image of the recommen
 
 1. Commit the `manifests/brewz/virtual-server.yaml` and `manifests/brewz/app.yaml` files to your local repository, then push them to your remote repository. ArgoCD will pick up the most recent changes, and deploy them for you.
 
-    > **Note:** In the UDF environment, at times ArgoCD may not immediately detect and deploy the changes. If this is the case, click the **Refresh** button on the **brewz** application in ArgoCD.
-
     Once the configuration is deployed, NGINX Ingress Controller will reload NGINX, and the **Reloads** metric on the Grafana dashboard should increment.
 
 1. Use the **Hey** utility in the terminal of the **devbox** vm to request the **recommendations** service directly as if the Brewz SPA application was doing so:
@@ -126,8 +124,6 @@ The DevOps and the application owners aren't willing to allow this error conditi
     ```
 
 1. ArgoCD will pick up the most recent changes, and deploy them for you. Check the brewz `VirtualServer` resource under the `brewz` application to check that the revert was successful.
-
-    > **Note:** In the lab environment, at times ArgoCD may not immediately detect and deploy the changes. If this is the case, click the **Refresh** button on the **brewz** application in ArgoCD.
 
 1. Once the revert is successful, use the **Hey** utility in the terminal of the **devbox** vm to request the **recommendations** service directly as if the Brewz SPA application was doing so:
 
